@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import * as THREE from 'three';
 import Vanta from 'vanta/dist/vanta.halo.min'; 
+import TypeWriter from './TypeWriter'
 
 const MainSection = () => {
 
@@ -26,7 +27,7 @@ const MainSection = () => {
                 <p className="heading">
                     Hi , I am <span className="name">No</span><span className="name2">va</span>
                 </p>
-                <p className="sub-heading">Front-end Developer</p>
+                <p className="sub-heading"> <TypeWriter /> </p>
                 <div className="contact">
                     <a
                         className="facebook"
@@ -66,7 +67,7 @@ const MainSection = () => {
                 </a>
             </div>
             <div className="my-img">
-                <img className="" src='./public/images/me.jpg' alt="Profile" />
+                <img className="" src='/images/me.jpg' alt="Profile" />
             </div>
         </section>
     );

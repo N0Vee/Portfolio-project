@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Font1;
+    src: url(/public/fonts/JosefinSans-VariableFont_wght.ttf);
+}
+
 /* Navbar */
 
 
@@ -8,7 +13,22 @@
     height: 100vh;
 }
 
+#page-bg .hero-body h1:nth-child(2){
+    font-family: Font1;
+    font-size: xx-large;
+}
+
+#page-bg .box {
+    transition: .3s ease-in-out;
+    width: 400px;
+}
+
+#page-bg .box:hover {
+    transform: translateY(-4px);
+}
+
 .title span {
+    
     text-shadow: rgb(67, 34, 124) 1px 0 10px;
 }
 

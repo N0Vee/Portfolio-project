@@ -1,6 +1,4 @@
-<h1 align="center">This is my Portfolio website</h1>
-<h3 align="center">A passionate frontend developer from India</h3>
+<h1 align="center">This is my Portfolio project</h1>
+<h3 align="center">using React & Bulma Framework as Frontend and Express.js & Axios as Backend</h3>
 
-<p align="left">
-</p>
 

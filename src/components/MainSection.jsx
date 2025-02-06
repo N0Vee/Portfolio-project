@@ -1,26 +1,8 @@
 import React, { useEffect } from 'react';
-import * as THREE from 'three';
-import Vanta from 'vanta/dist/vanta.halo.min'; 
 import TypeWriter from './TypeWriter'
 
 
 const MainSection = () => {
-
-    // useEffect(() => {
-    //     const vantaEffect = Vanta({
-    //         el: "#page-bg",
-    //         THREE: THREE,
-    //         mouseControls: true,
-    //         touchControls: true,
-    //         gyroControls: false,
-    //         minHeight: 200.00,
-    //         minWidth: 200.00,
-    //     });
-
-    //     return () => {
-    //         if (vantaEffect) vantaEffect.destroy();
-    //     };
-    // }, []);
 
     return (
         <section className='hero' id='page-bg'>

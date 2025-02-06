@@ -5,7 +5,7 @@ import ReactTypingEffect from 'react-typing-effect';
 const TypeWriter = () => {
   return (
     <ReactTypingEffect
-      text={["Frontend Developer."]}
+      text={["Website Developer."]}
       displayTextRenderer={(text, i) => {
         return (
           <h1 className='Typewriter'>

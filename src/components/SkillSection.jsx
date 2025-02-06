@@ -7,7 +7,7 @@ export const SkillSection = () => {
     ];
 
     const ui = [
-        "bootstrap", "Tailwind"
+        "Bulma", "bootstrap", "Tailwind"
     ];
 
     const backend= [
@@ -19,6 +19,7 @@ export const SkillSection = () => {
     ];
 
     const iconMap = {
+        "Bulma" : "https://bulma.io/assets/brand/Bulma%20Logo%20White.png",
         "Tailwind": "https://www.loopple.com/img/tailwind-logo.png",
         "Express" : "https://img.icons8.com/?size=100&id=kg46nzoJrmTR&format=png&color=abb1bf",
         "MySQL" : "MySQL",
@@ -28,7 +29,7 @@ export const SkillSection = () => {
         
     };
 
-    const CreateSkillSection = (title, type) => {
+    const SkillSection = (title, type) => {
         return(
             <>
                 <p className='mt-4'>{title}</p>
@@ -39,7 +40,7 @@ export const SkillSection = () => {
                                         <div className="is-center mx-5 my-5">
                                             <span className="icon">
                                                 {iconMap[iconName] ? (
-                                                    <img src={iconMap[iconName]} alt={iconName} className='image is-258x258'/>
+                                                    <img id='imgIcon' src={iconMap[iconName]} alt={iconName} className=''/>
                                                 ) : (
                                                     <i id='Icon' className={'fab fa-' + iconName}></i>
                                                 )}
@@ -61,10 +62,10 @@ export const SkillSection = () => {
                         
                         <h3 className=''>Featured Skill</h3>
                         
-                        {CreateSkillSection("Frontend/Framework", frontend)}
-                        {CreateSkillSection("UI Libraries", ui)}
-                        {CreateSkillSection("Backend", backend)}
-                        {CreateSkillSection("Databases", database)}
+                        {SkillSection("Frontend/Framework", frontend)}
+                        {SkillSection("UI Libraries", ui)}
+                        {SkillSection("Backend", backend)}
+                        {SkillSection("Databases", database)}
 
                     </div>
                 </div>

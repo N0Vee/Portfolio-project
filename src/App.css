@@ -59,8 +59,15 @@
     font-size: 3em;
 }
 
-#Icon:hover {
-    
+#imgIcon {
+    scale: 2;
+    transition: .3s ease-in-out;
+}
+
+#imgIcon:hover {
     transform: translateY(-3px);
-    font-size: 3em;
+}
+
+#Icon:hover {
+    transform: translateY(-3px);
 }

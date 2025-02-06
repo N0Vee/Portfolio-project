@@ -3,6 +3,9 @@
     src: url(/public/fonts/JosefinSans-VariableFont_wght.ttf);
 }
 
+body #root {
+    background-color: hsl(0, 0%, 21%);
+}
 /* Navbar */
 
 

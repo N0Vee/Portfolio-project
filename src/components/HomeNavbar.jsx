@@ -1,88 +1,78 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
 function HomeNavbar() {
+    const location = useLocation();
+
+    function checkPath(path) {
+        return location.pathname === path ? "navbar-item is-selected" : "navbar-item";
+    }
+
     return (
-    <>
-        <header className='container'>
-            <nav className='navbar py-2'>
-                <div className="navbar-brand">
-                    <a href="" className="navbar-item is-size-5"><strong>WS</strong></a>
-                </div>
-                <div className="navbar-menu">
-                    <div className="navbar-start">
-                        <a href="" className="navbar-item is-selected ml-5">
-                            <span class="icon-text">
-                                <span class="icon">
-                                    <i class="fas fa-home"></i>
-                                </span>
-                                <span>Home</span>
-                            </span>
-                        </a>
-                        <a href="" className="navbar-item">
-                            <span class="icon-text">
-                                <span class="icon">
-                                    <i class="fas fa-user"></i>
-                                </span>
-                                <span>About</span>
-                            </span>
-                        </a>
-                        <a href="" className="navbar-item">
-                            <span class="icon-text">
-                                <span class="icon">
-                                    <i class="fas fa-code"></i>
-                                </span>
-                                <span>Skills</span>
-                            </span>
-                        </a>
-                        <a href="" className="navbar-item">
-                            <span class="icon-text">
-                                <span class="icon">
-                                    <i class="fas fa-book-open"></i>
-                                </span>
-                                <span>Education</span>
-                            </span>
-                        </a>
-                        <a href="" className="navbar-item">
-                            <span class="icon-text">
-                                <span class="icon">
-                                    <i class="fas fa-at"></i>
-                                </span>
-                                <span>Contact</span>
-                            </span>
-                        </a>
+        <>
+            <header className='container'>
+                <nav className='navbar py-2'>
+                    <div className="navbar-brand">
+                        <Link to="/" className="navbar-item is-size-5"><strong>WS</strong></Link>
                     </div>
-                    <div className="navbar-end">
-                        <a href="" className="navbar-item">
-                            <span class="icon-text">
-                                <span class="icon">
-                                    <i class="fas fa-flag"></i>
+                    <div className="navbar-menu">
+                        <div className="navbar-start">
+                            <Link to="/" className={checkPath("/")}>
+                                <span className="icon-text">
+                                    <span className="icon">
+                                        <i className="fas fa-home"></i>
+                                    </span>
+                                    <span>Home</span>
                                 </span>
-                                <span>Blog</span>
-                            </span>
-                        </a>
+                            </Link>
+                            <Link to="/about" className={checkPath("/about")}>
+                                <span className="icon-text">
+                                    <span className="icon">
+                                        <i className="fas fa-user"></i>
+                                    </span>
+                                    <span>About</span>
+                                </span>
+                            </Link>
+                            <Link to="/skills" className={checkPath("/skills")}>
+                                <span className="icon-text">
+                                    <span className="icon">
+                                        <i className="fas fa-code"></i>
+                                    </span>
+                                    <span>Skills</span>
+                                </span>
+                            </Link>
+                            <Link to="/education" className={checkPath("/education")}>
+                                <span className="icon-text">
+                                    <span className="icon">
+                                        <i className="fas fa-book-open"></i>
+                                    </span>
+                                    <span>Education</span>
+                                </span>
+                            </Link>
+                            <Link to="/contact" className={checkPath("/contact")}>
+                                <span className="icon-text">
+                                    <span className="icon">
+                                        <i className="fas fa-at"></i>
+                                    </span>
+                                    <span>Contact</span>
+                                </span>
+                            </Link>
+                        </div>
+                        <div className="navbar-end">
+                            <Link to="/blog" className={checkPath("/blog")}>
+                                <span className="icon-text">
+                                    <span className="icon">
+                                        <i className="fas fa-flag"></i>
+                                    </span>
+                                    <span>Blog</span>
+                                </span>
+                            </Link>
+                        </div>
                     </div>
-                </div>
-            </nav>
-        </header>
-        
-        {/* <header>
-        <nav className="navbar" role="navigation" aria-label="main navigation">
-          
-            <div className="navbar-brand">
-                <a href="" className="navbar-item">NOVA</a>
-            </div>
-            <ul className="nav">
-              <li><a href="index.html" className="active">Home</a></li>
-              <li><a href="about.html">About</a></li>
-              <li><a href="skills.html">Skills</a></li>
-              <li><a href="education.html">Education</a></li>
-              <li><a href="contact.html">Contact</a></li>
-            </ul>
-        
-        </nav>
-      </header> */}
-    </>
-  )
+                </nav>
+            </header>
+        </>
+    );
 };
 
 export default HomeNavbar;

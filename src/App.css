@@ -71,3 +71,15 @@
 #Icon:hover {
     transform: translateY(-3px);
 }
+
+
+/* Blog */
+
+#blog-box {
+    transition: .3s ease-in-out;
+}
+
+#blog-box:hover {
+    cursor: pointer;
+    transform: translateY(-3px);
+}

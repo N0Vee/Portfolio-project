@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-const BaseUrl = "http://localhost:3000/blogs";
+const BaseUrl = "https://portfolio-project-backend-yy8b.onrender.com/blogs";
 
 function BlogSection() {
     const [Blog, setBlog] = useState(null);

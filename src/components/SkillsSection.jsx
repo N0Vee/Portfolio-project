@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const SkillSection = () => {
+export const SkillsSection = () => {
     const frontend = ["html5", "css3", "js", "react"];
     const ui = ["Bulma", "bootstrap", "Tailwind"];
     const backend = ["node-js", "Express"];
@@ -17,13 +17,13 @@ export const SkillSection = () => {
     };
 
     
-    const SkillSectionFactory = (title, type) => {
+    const SkillSectionFactory = (type, skills) => {
         return () => (
             <>
-                <p className='mt-4'>{title}</p>
+                <p className='mt-4'>{type}</p>
                 <div className="grid">
                     <div className="columns is-multiline">
-                        {type.map((iconName, index) => (
+                        {skills.map((iconName, index) => (
                             <div key={index} className="column is-one-four">
                                 <div className="is-center mx-5 my-5">
                                     <span className="icon">
@@ -63,4 +63,4 @@ export const SkillSection = () => {
     );
 };
 
-export default SkillSection;
+export default SkillsSection;

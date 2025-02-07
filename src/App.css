@@ -83,3 +83,7 @@
     cursor: pointer;
     transform: translateY(-3px);
 }
+
+#blog-wrapper {
+    width: 100%;
+}

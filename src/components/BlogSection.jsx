@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 
 const BaseUrl = "https://portfolio-project-backend-yy8b.onrender.com/blogs";
@@ -20,12 +21,24 @@ function BlogSection() {
     return (
         <div>
             <div className="container">
+
                 <h1 className='has-text-centered mt-6 is-size-2'>Blog</h1>
+                
                 {Blog ? (
+
                     <ul>
+                    
+                    <Link to='/edit' className='button is-warning is-small'>
+                    <span className="icon-text">
+                        <span className="icon">
+                            <i className="fa-solid fa-pen-to-square"></i>
+                        </span>
+                    </span>
+                    </Link>
+
                         {Blog.map((blog) => (
                             <li key={blog.id} className='is-flex is-flex-direction-column'>
-                                <div id='blog-box' className="box mt-6 is-flex is-flex-direction-row">
+                                <div id='blog-box' className="box mt-5 is-flex is-flex-direction-row">
                                     <img 
                                         src="https://placehold.co/128x128" 
                                         alt="Blog"

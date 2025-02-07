@@ -4,8 +4,11 @@ import "./App.css";
 import 'bulma/css/bulma.min.css';
 import HomeNavbar from './components/HomeNavbar';
 import MainSection from './components/MainSection';
-import SkillSection from "./components/SkillSection";
-import BlogSection from "./components/BlogSection"; // นำเข้า BlogSection
+import SkillsSection from "./components/SkillsSection";
+import BlogSection from "./components/BlogSection";
+import BlogAdmin from "./components/BlogAdmin";
+import BlogEdit from "./components/BlogEdit";
+import BlogAdd from "./components/BlogAdd";
 
 function App() {
   return (
@@ -15,10 +18,13 @@ function App() {
         <Route path="/" element={
           <>
             <MainSection />
-            <SkillSection />
+            <SkillsSection />
           </>
         } />
         <Route path="/blog" element={<BlogSection />} />
+        <Route path="/edit" element={<BlogAdmin />} />
+        <Route path="/edit/:id" element={<BlogEdit />} />
+        <Route path="/add" element={<BlogAdd />} />
       </Routes>
     </Router>
   );

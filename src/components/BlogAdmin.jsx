@@ -1,0 +1,108 @@
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
+
+const BASE_URL = "https://portfolio-project-backend-yy8b.onrender.com/blogs";
+
+function BlogAdmin() {
+    const navigate = useNavigate();
+    const [Blog, setBlog] = useState([]);
+
+    useEffect(() => {
+        axios.get(BASE_URL)
+            .then((res) => {
+                setBlog(res.data);
+                console.log(res.data);
+            })
+            .catch((error) => {
+                console.error("Error fetching data:", error);
+            });
+    }, []);
+
+    const handleDel = (ID) => {
+        axios.delete(`${BASE_URL}/${ID}`)
+            .then(() => {
+                console.log("Blog deleted successfully!");
+                navigate('/edit');
+            })
+            .catch((error) => console.error("Error deleting blog:", error));
+    }
+    
+
+    return (
+        <div>
+            <div className="container">
+
+                <h1 className='has-text-centered mt-6 is-size-2'>Blog</h1>
+                
+                {Blog ? (
+                    <ul>
+                    
+                    <Link to='/blog' className='button is-warning is-small'>
+                    <span className="icon-text">
+                        <span className="icon">
+                            <i className="fa-solid fa-arrow-left"></i>
+                        </span>
+                    </span>
+                    </Link>
+
+                    <Link to='/add' className='button is-success is-small is-pulled-right'>
+                    <span className="icon-text">
+                        <span className="icon">
+                            <i className="fa-solid fa-plus"></i>
+                        </span>
+                    </span>
+                    </Link>
+
+
+                        {Blog.map((blog) => (
+                            <li key={blog.ID} className='is-flex is-flex-direction-column'>
+                                <div id='blog-box' className="box mt-5 is-flex is-flex-direction-row">
+                                    <img 
+                                        src="https://placehold.co/128x128" 
+                                        alt="Blog"
+                                    />
+
+                                    <div id='blog-wrapper' className="ml-6">
+                                        
+                                        <strong className='is-size-4'>{blog.BlogName}</strong>
+
+                                        <button onClick={() => handleDel(blog.ID)} className='button is-danger is-small is-pulled-right'>
+                                        <span className="icon-text">
+                                            <span className="icon">
+                                                <i className="fa-solid fa-trash"></i>
+                                            </span>
+                                        </span>
+                                        </button>
+
+                                        <Link to={`/edit/${blog.ID}`}>
+                                        <button className='button is-warning is-small is-pulled-right mr-3'>
+                                        <span className="icon-text">
+                                            <span className="icon">
+                                                <i className="fa-solid fa-pen-to-square"></i>
+                                            </span>
+                                        </span>
+                                        </button>
+                                        </Link>
+                                        
+                                        <p className="mt-2">{blog.DetailIntro}</p>
+                                        
+                                        <a href={blog.BlogUrl} target="_blank" rel="noopener noreferrer" className="mt-2">
+                                            {blog.BlogUrl}
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </li>
+                        ))}
+                    </ul>
+                ) : (
+                    <p>No Blog posted right now...</p>
+                )}
+            </div>
+        </div>
+    );
+}
+
+export default BlogAdmin;

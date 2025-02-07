@@ -20,7 +20,7 @@ export const SkillsSection = () => {
     const SkillSectionFactory = (type, skills) => {
         return () => (
             <>
-                <p className='mt-4'>{type}</p>
+                <p id={type} className='mt-4'>{type}</p>
                 <div className="grid">
                     <div className="columns is-multiline">
                         {skills.map((iconName, index) => (

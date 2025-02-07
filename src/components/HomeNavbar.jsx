@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React, { useEffect, useRef } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+
 
 function HomeNavbar() {
     const location = useLocation();
@@ -33,7 +34,11 @@ function HomeNavbar() {
                                     <span>About</span>
                                 </span>
                             </Link>
-                            <Link to="/skills" className={checkPath("/skills")}>
+                            <Link to="/#Databases" className={checkPath("/skills")} onClick={() => {
+                                databaseRef.current?.scrollIntoView({
+                                    behavior: 'smooth'
+                                })
+                            }}>
                                 <span className="icon-text">
                                     <span className="icon">
                                         <i className="fas fa-code"></i>

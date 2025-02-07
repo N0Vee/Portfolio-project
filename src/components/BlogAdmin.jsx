@@ -24,7 +24,7 @@ function BlogAdmin() {
         axios.delete(`${BASE_URL}/${ID}`)
             .then(() => {
                 console.log("Blog deleted successfully!");
-                navigate('/edit');
+                window.location.reload();
             })
             .catch((error) => console.error("Error deleting blog:", error));
     }

@@ -37,27 +37,27 @@ function BlogEdit() {
         <div className='container mt-6'>
             <form onSubmit={handleSubmit}>
                 <div className="field">
-                    <label className="label mt-3">Blog Name</label>
+                    <label className="label mt-3">Blog Title</label>
                     <div className="control">
                         <input name="BlogName" className="input" defaultValue={blog?.BlogName || ''} type="text" placeholder="Text input" />
                     </div>
 
-                    <label className="label mt-3">Detail Intro</label>
+                    <label className="label mt-3">Intro</label>
                     <div className="control">
                         <textarea name="DetailIntro" className="textarea" defaultValue={blog?.DetailIntro || ''} placeholder="Text input" />
                     </div>
 
-                    <label className="label mt-3">Detail Body</label>
+                    <label className="label mt-3">Body</label>
                     <div className="control">
                         <textarea name="DetailBody" className="textarea" defaultValue={blog?.DetailBody || ''} placeholder="Text input" />
                     </div>
 
-                    <label className="label mt-3">Detail Conclusion</label>
+                    <label className="label mt-3">Conclusion</label>
                     <div className="control">
                         <textarea name="DetailConclusion" className="textarea" defaultValue={blog?.DetailConclusion || ''} placeholder="Text input" />
                     </div>
 
-                    <label className="label mt-3">Detail Temp</label>
+                    <label className="label mt-3">Temp</label>
                     <div className="control">
                         <textarea name="DetailTemp" className="textarea" defaultValue={blog?.DetailTemp || ''} placeholder="Text input" />
                     </div>

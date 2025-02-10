@@ -34,7 +34,11 @@ function HomeNavbar() {
 
             window.google.accounts.id.renderButton(
                 document.getElementById("google-login"),
-                { theme: "outline", size: "large" }
+                { 
+                    theme: "filled_black", 
+                    shape: "circle",
+                    size: "large",
+                }
             );
         };
     }, []);
@@ -43,6 +47,7 @@ function HomeNavbar() {
         const userInfo = JSON.parse(atob(response.credential.split(".")[1]));
         setUser(userInfo);
         Cookies.set("user", JSON.stringify(userInfo), { expires: 7 });
+        window.location.reload();
         console.log("User Info:", userInfo);
     };
 

@@ -18,6 +18,7 @@ function BlogSection() {
             });
     }, []);
 
+
     return (
         <div>
             <div className="container">
@@ -38,7 +39,7 @@ function BlogSection() {
 
                         {Blog.map((blog) => (
                             <li key={blog.id} className='is-flex is-flex-direction-column'>
-                                <div id='blog-box' className="box mt-5 is-flex is-flex-direction-row">
+                                <Link to={`/view/${blog.ID}`} id='blog-box' className="box mt-5 is-flex is-flex-direction-row">
                                     <img 
                                         src="https://placehold.co/128x128" 
                                         alt="Blog"
@@ -51,7 +52,7 @@ function BlogSection() {
                                             {blog.BlogUrl}
                                         </a>
                                     </div>
-                                </div>
+                                </Link>
                             </li>
                         ))}
                     </ul>

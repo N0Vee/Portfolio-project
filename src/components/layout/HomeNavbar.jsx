@@ -1,18 +1,78 @@
-import React, { useEffect, useRef } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
+const CLIENT_ID = "367457418777-ffcu5lmja31v91s99dhe4d9elkur2dcj.apps.googleusercontent.com"; 
 
 function HomeNavbar() {
     const location = useLocation();
+    const [user, setUser] = useState(null);
 
     function checkPath(path) {
         return location.pathname === path ? "navbar-item is-selected" : "navbar-item";
     }
 
+    useEffect(() => {
+        
+        const storedUser = Cookies.get("user");
+        if (storedUser) {
+            setUser(JSON.parse(storedUser));
+        }
+
+        const script = document.createElement("script");
+        script.src = "https://accounts.google.com/gsi/client";
+        script.async = true;
+        document.body.appendChild(script);
+
+        script.onload = () => {
+            window.google.accounts.id.initialize({
+                client_id: CLIENT_ID,
+                callback: handleCredentialResponse,
+                ux_mode: "popup",
+                login_uri: window.location.href,  
+            });
+
+            window.google.accounts.id.renderButton(
+                document.getElementById("google-login"),
+                { theme: "outline", size: "large" }
+            );
+        };
+    }, []);
+
+    const handleCredentialResponse = (response) => {
+        const userInfo = JSON.parse(atob(response.credential.split(".")[1]));
+        setUser(userInfo);
+        Cookies.set("user", JSON.stringify(userInfo), { expires: 7 });
+        console.log("User Info:", userInfo);
+    };
+
+    const logout = () => {
+        setUser(null);
+        Cookies.remove("user");
+        window.location.reload();
+    };
+
+    function Profile() {
+        return (
+            <>
+                {!user ? (
+                    <div id="google-login" className="navbar-item"></div>
+                ) : (
+                    <div className="navbar-item has-dropdown is-hoverable">
+                        <a className="navbar-link">{user.name}</a>
+                        <div className="navbar-dropdown">
+                            <a className="navbar-item" onClick={logout}>Logout</a>
+                        </div>
+                    </div>
+                )}
+            </>
+        );
+    }
+
     return (
         <>
-            <header className='container'>
-                <nav className='navbar py-2'>
+            <header className="container">
+                <nav className="navbar py-2">
                     <div className="navbar-brand">
                         <Link to="/" className="navbar-item is-size-5"><strong>WS</strong></Link>
                     </div>
@@ -72,12 +132,13 @@ function HomeNavbar() {
                                     <span>Blog</span>
                                 </span>
                             </Link>
+                            <Profile />
                         </div>
                     </div>
                 </nav>
             </header>
         </>
     );
-};
+}
 
 export default HomeNavbar;

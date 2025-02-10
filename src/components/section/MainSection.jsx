@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import TypeWriter from './TypeWriter'
+import TypeWriter from '../lib/TypeWriter'
 
 
 const MainSection = () => {

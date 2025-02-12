@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Cookies from 'js-cookie';
 
-const CLIENT_ID = "367457418777-ffcu5lmja31v91s99dhe4d9elkur2dcj.apps.googleusercontent.com"; 
-
 function HomeNavbar() {
     const location = useLocation();
     const [user, setUser] = useState(null);
@@ -15,7 +13,7 @@ function HomeNavbar() {
     useEffect(() => {
         
         const storedUser = Cookies.get("user");
-        if (storedUser) {
+        if (storedUser && !user) {
             setUser(JSON.parse(storedUser));
         }
 
@@ -26,7 +24,7 @@ function HomeNavbar() {
 
         script.onload = () => {
             window.google.accounts.id.initialize({
-                client_id: CLIENT_ID,
+                client_id: import.meta.env.VITE_CLIENT_ID,
                 callback: handleCredentialResponse,
                 ux_mode: "popup",
                 login_uri: window.location.href,  
@@ -41,7 +39,7 @@ function HomeNavbar() {
                 }
             );
         };
-    }, []);
+    }, [location.pathname, user]);
 
     const handleCredentialResponse = (response) => {
         const userInfo = JSON.parse(atob(response.credential.split(".")[1]));
@@ -56,6 +54,8 @@ function HomeNavbar() {
         Cookies.remove("user");
         window.location.reload();
     };
+
+
 
     function Profile() {
         return (

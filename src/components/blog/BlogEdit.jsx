@@ -6,10 +6,9 @@ function BlogEdit() {
     const [blog, setBlog] = useState(null);
     const navigate = useNavigate();
     const { id } = useParams();
-    const BASE_URL = "https://portfolio-project-backend-yy8b.onrender.com/blogs";
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/${id}`)
+        axios.get(`${import.meta.env.VITE_BASE_URL}/blogs/${id}`)
             .then((res) => setBlog(res.data))
             .catch((error) => console.error("Error fetching data:", error));
     }, []);
@@ -25,7 +24,7 @@ function BlogEdit() {
             DetailTemp: e.target.DetailTemp.value,
         };
 
-        axios.put(`${BASE_URL}/${id}`, data)
+        axios.put(`${import.meta.env.VITE_BASE_URL}/blogs/${id}`, data)
             .then(() => {
                 console.log("Blog updated successfully!");
                 navigate('/edit');

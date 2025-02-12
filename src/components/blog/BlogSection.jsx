@@ -3,10 +3,6 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-const ADMIN_EMAIL = 'wanidchanon@gmail.com';
-
-const BASE_URL = "https://portfolio-project-backend-yy8b.onrender.com/blogs";
-
 function BlogSection() {
     const [Blog, setBlog] = useState(null);
     const [isAdmin, setIsAdmin] = useState(false);
@@ -15,12 +11,12 @@ function BlogSection() {
         const storedUser = Cookies.get("user");
         if (storedUser) {
             const user = JSON.parse(storedUser);
-            if (user.email === ADMIN_EMAIL) {
+            if (user.email === import.meta.env.VITE_ADMIN_EMAIL) {
                 setIsAdmin(true); 
             }
         }
 
-        axios.get(BASE_URL)
+        axios.get(import.meta.env.VITE_BASE_URL + "/blogs")
             .then((res) => {
                 setBlog(res.data);
                 console.log(res.data);

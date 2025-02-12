@@ -5,13 +5,11 @@ import axios from 'axios';
 function BlogAdd() {
     const [blog, setBlog] = useState(null);
     const navigate = useNavigate();
-    const BASE_URL = "https://portfolio-project-backend-yy8b.onrender.com/blogs";
-
     const handleSubmit = async (e) => {
         e.preventDefault();
     
         try {
-            const response = await axios.post(`${BASE_URL}`, {
+            const response = await axios.post(`${import.meta.env.VITE_BASE_URL}`, {
                 
                 ImgUrl: "TEST",
                 BlogName: e.target.BlogName.value,

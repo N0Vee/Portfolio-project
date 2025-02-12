@@ -3,8 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
 
-const BASE_URL = "https://portfolio-project-backend-yy8b.onrender.com/blogs";
-
 function BlogView() {
 
     const [blog, setBlog] = useState(null);
@@ -13,7 +11,7 @@ function BlogView() {
 
 
     useEffect(() => {
-        axios.get(`${BASE_URL}/${id}`)
+        axios.get(`${import.meta.env.VITE_BASE_URL}/blogs/${id}`)
             .then((res) => setBlog(res.data))
             .catch((error) => console.error("Error fetching data:", error));
         

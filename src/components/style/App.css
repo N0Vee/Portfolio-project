@@ -75,6 +75,26 @@
 
 /* Blog */
 
+
+/* จัดเรียง Edit Button และ Search Box ในบรรทัดเดียวกัน */
+#edit-search-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* กำหนดให้ช่องค้นหามีขนาดเล็กลง */
+#search-box {
+    max-width: 300px;
+    width: 100%;
+}
+
+/* ปรับปุ่ม Edit */
+#edit-button {
+    padding: 0.5rem 1rem; /* ปรับขนาดปุ่ม */
+}
+
+
 #blog-box {
     transition: .3s ease-in-out;
 }

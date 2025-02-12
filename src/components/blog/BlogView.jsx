@@ -26,8 +26,8 @@ function BlogView() {
                 <h1 className="title is-3 has-text-centered">{blog?.BlogName}</h1>
 
                 {/* Image Section */}
-                <figure className="image is-4by3">
-                <img src={`${import.meta.env.VITE_BASE_URL}${blog?.ImgUrl}`} alt="Blog Image" />
+                <figure className="has-text-centered">
+                    <img id='imgView' src={`${import.meta.env.VITE_BASE_URL}${blog?.ImgUrl}`} alt="Blog Image" />
                 </figure>
 
                 {/* Blog Content */}

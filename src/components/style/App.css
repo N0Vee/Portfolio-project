@@ -93,6 +93,11 @@
 
 
 #blogImgShow {
-    width: 128px;
-    height: 128px;
+    width: 140px;
+    height: 140px;
+}
+
+#imgView {
+    width: 600px;
+    height: 600px;
 }

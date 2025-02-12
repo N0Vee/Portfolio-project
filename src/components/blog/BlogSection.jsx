@@ -47,8 +47,9 @@ function BlogSection() {
                             <li key={blog.id} className='is-flex is-flex-direction-column'>
                                 <Link to={`/view/${blog.ID}`} id='blog-box' className="box mt-5 is-flex is-flex-direction-row">
                                     <img 
-                                        src="https://placehold.co/128x128" 
+                                        src={`${import.meta.env.VITE_BASE_URL}${blog?.ImgUrl}`}
                                         alt="Blog"
+                                        id='blogImgShow'
                                     />
 
                                     <div className="ml-6">

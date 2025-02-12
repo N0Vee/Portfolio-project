@@ -3,14 +3,12 @@ import { Link } from 'react-router-dom';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
-const BASE_URL = "https://portfolio-project-backend-yy8b.onrender.com/blogs";
-
 function BlogAdmin() {
     const navigate = useNavigate();
     const [Blog, setBlog] = useState([]);
 
     useEffect(() => {
-        axios.get(BASE_URL)
+        axios.get(import.meta.env.VITE_BASE_URL + "/blogs")
             .then((res) => {
                 setBlog(res.data);
                 console.log(res.data);
@@ -21,7 +19,7 @@ function BlogAdmin() {
     }, []);
 
     const handleDel = (ID) => {
-        axios.delete(`${BASE_URL}/${ID}`)
+        axios.delete(`${import.meta.env.VITE_BASE_URL}/blogs/${ID}`)
             .then(() => {
                 console.log("Blog deleted successfully!");
                 window.location.reload();
@@ -60,8 +58,10 @@ function BlogAdmin() {
                             <li key={blog.ID} className='is-flex is-flex-direction-column'>
                                 <div id='blog-box' className="box mt-5 is-flex is-flex-direction-row">
                                     <img 
-                                        src="https://placehold.co/128x128" 
+                                        src={`${import.meta.env.VITE_BASE_URL}${blog?.ImgUrl}`} 
                                         alt="Blog"
+                                        id='blogImgShow'
+
                                     />
 
                                     <div id='blog-wrapper' className="ml-6">

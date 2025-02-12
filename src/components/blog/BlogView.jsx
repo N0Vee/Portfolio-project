@@ -17,7 +17,6 @@ function BlogView() {
         
     }, []);
 
-    
   return (
     <>
         <div className="container mt-6">
@@ -28,7 +27,7 @@ function BlogView() {
 
                 {/* Image Section */}
                 <figure className="image is-4by3">
-                    <img src="https://placehold.co/800x400" alt="Blog" className="blogImg" />
+                <img src={`${import.meta.env.VITE_BASE_URL}${blog?.ImgUrl}`} alt="Blog Image" />
                 </figure>
 
                 {/* Blog Content */}
@@ -38,8 +37,9 @@ function BlogView() {
                     <div className="columns">
                     {/* Main Blog Body */}
                     <div className="column is-two-thirds">
-                        <p className="has-text-justified">{blog?.DetailBody}</p>
+                        <p className="has-text-justified" dangerouslySetInnerHTML={{ __html: blog?.DetailBody.replace(/\n/g, '<br />') }}></p>
                     </div>
+
 
                     {/* Sidebar / Extra Details */}
                     <div className="column is-one-third">

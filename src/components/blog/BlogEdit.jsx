@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import Cookies from "js-cookie";
 
 function BlogEdit() {
     const [blog, setBlog] = useState(null);
@@ -20,6 +21,33 @@ function BlogEdit() {
             reader.readAsDataURL(selectedFile);
         }
     };
+
+    const userId = Cookies.get("USER_ID");
+    const userEmail = Cookies.get("USER_EMAIL");
+
+    useEffect(() => {
+
+        if (userId == null || userEmail == null) {
+            navigate("/blog");
+        }
+
+        axios.get(import.meta.env.VITE_BASE_URL + "/authen", {
+            headers: {
+                "User-ID": userId, 
+                "User-Email": userEmail 
+            }
+        })
+        .then(response => {
+            if (!response.data.isAdmin) {
+                navigate("/edit");
+                
+            } 
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+        
+    }, []);
 
     useEffect(() => {
         axios.get(`${import.meta.env.VITE_BASE_URL}/blogs/${id}`)

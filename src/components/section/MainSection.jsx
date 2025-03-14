@@ -1,57 +1,85 @@
-import React, { useEffect } from 'react';
-import TypeWriter from '../lib/TypeWriter'
-
+import React, { useEffect, useState } from 'react';
+import TypeWriter from '../lib/TypeWriter';
 
 const MainSection = () => {
+    const [isLoaded, setIsLoaded] = useState(false);
+    const [toggleText, setToggleText] = useState(false);
+
+    useEffect(() => {
+        setIsLoaded(true);
+    }, []);
 
     return (
-        <section className='hero' id='page-bg'>
-            <div className="container is-flex ">
+        <section className='hero is-fullheight' id='page-bg'>
 
-                <div className="hero-body is-flex is-flex-direction-column is-justify-content-center is-align-content-center">
-                    
-                    <h1 className='title is-size-4'> Hello </h1>
-                    <h1 className='title mb-5 is-size-1'> I'm <span className='has-text-link is-size-1'>Wanichanon</span></h1>
-                    <TypeWriter />
-
-                    <div className="box mt-6">
-                        <p className="subtitle">In the beninging.</p>
-                        <code>-Aum</code>
-                    </div>
-                    
-                    <div className="content mt-5 is-flex is-flex-direction-row is-justify-content-start is-align-content-center is-align-items-center">
-                        <span className="icon-text mx-2">
-                            <span className="icon">
-                                <a href="https://github.com/N0Vee" className='has-text-white'><i className="fab fa-github"></i></a>
-                            </span>
-                        </span>
-                        |
-                        <span className="icon-text mx-2">
-                            <span className="icon">
-                                <a href="https://www.linkedin.com/in/wanichanon-saelee-0b2717252/" className='has-text-white'><i className="fab fa-linkedin"></i></a>
-                            </span>
-                        </span>
-                        |
-                        <span className="icon-text mx-2">
-                            <span className="icon">
-                                <a href="https://discordapp.com/users/Nveee#9120" className='has-text-white'><i className="fab fa-discord"></i></a>
-                            </span>
-                        </span>
-
-                        <button className='button is-link ml-6 is-small'>About me</button>
-                    </div>
-
-                </div>
-                
-                <div className="images is-justify-content-center is-align-content-center mr-6">
-                    <img src="images/me.jpg" />
-                </div>
-                
+            <div className="glowing-dots">
+                {[...Array(30)].map((_, i) => (
+                    <div 
+                        key={i} 
+                        className="dot" 
+                        style={{
+                            left: `${Math.random() * 100}%`,
+                            top: `${Math.random() * 100}%`,
+                            opacity: Math.random() * 0.5 + 0.1,
+                            width: `${Math.random() * 4 + 1}px`,
+                            height: `${Math.random() * 4 + 1}px`
+                        }}
+                    />
+                ))}
             </div>
-            
+
+            <div className="hero-body">
+                <div className="container">
+                    <div className="columns hero-container is-vcentered">
+                        <div className={`column is-6 hero-content ${isLoaded ? 'fade-in' : ''}`} style={{ animationDelay: '0.2s' }}>
+                            <h2 className="subtitle is-5 has-text-grey-light">Hello there, I'm</h2>
+                            <h1 className="title is-1 main-title has-text-white">
+                                <span className="highlight">Wanichanon</span>
+                            </h1>
+                            
+                            <div className="typewriter-container mb-5">
+                                <TypeWriter />
+                            </div>
+                            
+                            <div onMouseEnter={() => setToggleText(!toggleText)} onMouseLeave={() => setToggleText(!toggleText)} className="quote-box">
+                                <p className="subtitle is-5 has-text-grey-light mb-3">
+                                    {toggleText ? "ความเรียบง่ายคือความซับซ้อนสูงสุด" : "Simplicity is the ultimate sophistication."}
+                                </p>
+                            </div>
+                            
+                            <div className="social-links is-flex">
+                                <a href="https://github.com/N0Vee" target="_blank" rel="noopener noreferrer" className="has-text-white" aria-label="GitHub">
+                                    <i className="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/wanichanon-saelee-0b2717252/" target="_blank" rel="noopener noreferrer" className="has-text-white" aria-label="LinkedIn">
+                                    <i className="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://discordapp.com/users/Nveee#9120" target="_blank" rel="noopener noreferrer" className="has-text-white" aria-label="Discord">
+                                    <i className="fab fa-discord"></i>
+                                </a>
+                                <a href="mailto:contact@wanichanon.com" className="has-text-white" aria-label="Email">
+                                    <i className="fas fa-envelope"></i>
+                                </a>
+                                
+                                <button className="button about-button has-text-white">
+                                    <span>About me</span>
+                                    <span className="icon">
+                                        <i className="fas fa-arrow-right"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div className={`column is-6 is-flex is-justify-content-center ${isLoaded ? 'fade-in' : ''}`} style={{ animationDelay: '0.4s' }}>
+                            <div className="profile-image-container">
+                                <img src="images/me.jpg" alt="Wanichanon Saelee" className="profile-image" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     );
-    
 };
 
 export default MainSection;

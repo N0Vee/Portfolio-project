@@ -16,17 +16,17 @@ export const SkillsSection = () => {
         "Firebase": "https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-original-wordmark.svg"
     };
 
-    
+
     const SkillSectionFactory = (type, skills) => {
         return () => (
             <>
-                <p id={type} className='mt-4'>{type}</p>
+                <p id={type} className='mt-4 has-text-centered appear'>{type}</p>
                 <div className="grid">
                     <div className="columns is-multiline">
                         {skills.map((iconName, index) => (
                             <div key={index} className="column is-one-four">
                                 <div className="is-center mx-5 my-5">
-                                    <span className="icon">
+                                    <span className="icon appear">
                                         {iconMap[iconName] ? (
                                             <img id='imgIcon' src={iconMap[iconName]} alt={iconName} className='' />
                                         ) : (
@@ -42,17 +42,17 @@ export const SkillsSection = () => {
         );
     };
 
-    
+
     const FrontendSection = SkillSectionFactory("Frontend/Framework", frontend);
     const UISection = SkillSectionFactory("UI Libraries", ui);
     const BackendSection = SkillSectionFactory("Backend", backend);
     const DatabaseSection = SkillSectionFactory("Databases", database);
 
     return (
-        <div className="container">
+        <div className="container mt-6">
             <div className="content">
                 <div className="is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
-                    <h3 className=''>Featured Skill</h3>
+                    <h3 className='mt-6'>Featured Skill</h3>
                     <FrontendSection />
                     <UISection />
                     <BackendSection />

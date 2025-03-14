@@ -43,7 +43,7 @@ const MainSection = () => {
                             
                             <div onMouseEnter={() => setToggleText(!toggleText)} onMouseLeave={() => setToggleText(!toggleText)} className="quote-box">
                                 <p className="subtitle is-5 has-text-grey-light mb-3">
-                                    {toggleText ? "ความเรียบง่ายคือความซับซ้อนสูงสุด" : "Simplicity is the ultimate sophistication."}
+                                    {toggleText ? '"ความเรียบง่ายคือสิ่งที่ซับซ้อนสูงสุด"' : '"Simplicity is the ultimate sophistication."'}
                                 </p>
                             </div>
                             

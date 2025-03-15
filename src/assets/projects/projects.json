@@ -3,7 +3,7 @@
       "id": 1,
       "title": "Weather Forecast Website",
       "category": "Web Application",
-      "image": "src\\assets\\projects\\projects_img\\weatherforcast.png",
+      "image": "/images/projects_img/weatherforcast.png",
       "github": "https://github.com/N0Vee/Weather-Forecast-Website",
       "description": "A weather forecast web app that fetches data from the OpenWeather API, providing real-time weather information for almost every country worldwide. Features a clean and minimalist UI built with Ant Design."
     },
@@ -11,7 +11,7 @@
       "id": 2,
       "title": "Guitar E-Commerce Website",
       "category": "Web Development",
-      "image": "src\\assets\\projects\\projects_img\\Guitarshop.png",
+      "image": "/images/projects_img/Guitarshop.png",
       "github": "https://github.com/Wanidx/project_front-end",
       "description": "A fully functional e-commerce website with an admin dashboard, featuring complete CRUD operations. Built with JavaScript, utilizing Axios for API calls and Express for backend management."
     },
@@ -19,7 +19,7 @@
       "id": 3,
       "title": "Portfolio Website",
       "category": "UI/UX Design",
-      "image": "src\\assets\\projects\\projects_img\\WebPortfolio.png",
+      "image": "/images/projects_img/WebPortfolio.png",
       "github": "https://github.com/N0Vee/Portfolio-project",
       "description": "A responsive personal portfolio website built with React, featuring a clean UI designed with Bulma. Enhanced with smooth animations using Framer Motion for a visually appealing experience."
     }

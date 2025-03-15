@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from "js-cookie";
+import { motion } from 'framer-motion';
 import "../style/BlogSection.css";
 
 function BlogSection() {
@@ -53,8 +54,32 @@ function BlogSection() {
         }
     }, [searchTerm, Blog]);
 
+    const [isVisible, setIsVisible] = useState(false);
+    const sectionRef = useRef(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                }
+            },
+            { threshold: 0.2 }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current);
+            }
+        };
+    }, []);
+
     return (
-        <div id='blog-bg' className='pt-6'>
+        <div id='blog-bg' className='pt-6' ref={sectionRef}>
             <div className="container">
                 <h1 className="has-text-centered is-size-2">Blog</h1>
 
@@ -86,20 +111,26 @@ function BlogSection() {
                     <ul>
                         {filteredBlogs.map((blog) => (
                             <li key={blog.id} className="is-flex is-flex-direction-column">
-                                <Link to={`/view/${blog.ID}`} id="blog-box" className="box mt-5 is-flex is-flex-direction-row">
-                                    <img
-                                        src={`${import.meta.env.VITE_BASE_URL}${blog?.ImgUrl}`}
-                                        alt="Blog"
-                                        id="blogImgShow"
-                                    />
-                                    <div className="ml-6">
-                                        <strong className="is-size-4">{blog.BlogName}</strong>
-                                        <p className="mt-2">{blog.DetailIntro}</p>
-                                        <a href={blog.BlogUrl} target="_blank" rel="noopener noreferrer" className="mt-2">
-                                            {blog.BlogUrl}
-                                        </a>
-                                    </div>
-                                </Link>
+                                <motion.div
+                                    initial={{ opacity: 0, y: -20 }}
+                                    animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }}
+                                    transition={{ duration: 0.8, delay: blog.id * 0.1 }}
+                                >
+                                    <Link to={`/view/${blog.ID}`} id="blog-box" className="box mt-5 is-flex is-flex-direction-row">
+                                        <img
+                                            src={`${import.meta.env.VITE_BASE_URL}${blog?.ImgUrl}`}
+                                            alt="Blog"
+                                            id="blogImgShow"
+                                        />
+                                        <div className="ml-6">
+                                            <strong className="is-size-4">{blog.BlogName}</strong>
+                                            <p className="mt-2">{blog.DetailIntro}</p>
+                                            <a href={blog.BlogUrl} target="_blank" rel="noopener noreferrer" className="mt-2">
+                                                {blog.BlogUrl}
+                                            </a>
+                                        </div>
+                                    </Link>
+                                </motion.div>
                             </li>
                         ))}
                     </ul>

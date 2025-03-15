@@ -1,4 +1,5 @@
 import React from 'react';
+import { div } from 'three/tsl';
 
 export const SkillsSection = () => {
     const frontend = ["html5", "css3", "js", "react"];
@@ -49,17 +50,36 @@ export const SkillsSection = () => {
     const DatabaseSection = SkillSectionFactory("Databases", database);
 
     return (
-        <div className="container mt-6">
-            <div className="content">
-                <div className="is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
-                    <h3 className='mt-6'>Featured Skill</h3>
-                    <FrontendSection />
-                    <UISection />
-                    <BackendSection />
-                    <DatabaseSection />
+        <div id='skill-bg'>
+            <div className="glowing-dots">
+                {[...Array(30)].map((_, i) => (
+                    <div
+                        key={i}
+                        className="dot"
+                        style={{
+                            left: `${Math.random() * 100}%`,
+                            top: `${Math.random() * 100}%`,
+                            opacity: Math.random() * 0.5 + 0.1,
+                            width: `${Math.random() * 4 + 1}px`,
+                            height: `${Math.random() * 4 + 1}px`
+                        }}
+                    />
+                ))}
+            </div>
+
+            <div className="container mt-6">
+                <div className="content">
+                    <div className="is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
+                        <h3 className='mt-6'>Featured Skill</h3>
+                        <FrontendSection />
+                        <UISection />
+                        <BackendSection />
+                        <DatabaseSection />
+                    </div>
                 </div>
             </div>
         </div>
+
     );
 };
 

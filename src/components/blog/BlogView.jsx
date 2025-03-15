@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
-import '../style/BlogView.css'
 
 function BlogView() {
     const [blog, setBlog] = useState(null);

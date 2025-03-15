@@ -1,7 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import "./components/style/App.css";
+// CSS
 import 'bulma/css/bulma.min.css';
+import "./components/style/Global.css";
+import "./components/style/Navbar.css";
+import "./components/style/MainSection.css";
+import "./components/style/SkillsSection.css";
+import "./components/style/BlogSection.css";
+import "./components/style/BlogView.css";
+
+// Components
 import HomeNavbar from './components/layout/HomeNavbar';
 import MainSection from './components/section/MainSection';
 import SkillsSection from "./components/section/SkillsSection";

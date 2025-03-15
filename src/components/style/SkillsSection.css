@@ -1,0 +1,52 @@
+/* Skill Section */
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+#skill-bg {
+    background: linear-gradient(45deg, #0a0a0a 0%, #1a1a1a 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+#skill-bg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.appear {
+    animation: appear linear;
+    animation-timeline: scroll(root block);
+}
+
+#Icon {
+    transition: 0.3s ease-in-out;
+    font-size: 3em;
+}
+
+#imgIcon {
+    scale: 2;
+    transition: 0.3s ease-in-out;
+}
+
+#imgIcon:hover {
+    transform: translateY(-3px);
+}
+
+#Icon:hover {
+    transform: translateY(-3px);
+}

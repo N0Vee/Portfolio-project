@@ -1,12 +1,4 @@
-@font-face {
-    font-family: Font1;
-    src: url(/public/fonts/JosefinSans-VariableFont_wght.ttf);
-}
-
-
-/* Navbar */
-
-/* Main */
+/* Main Section */
 
 #page-bg {
     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
@@ -23,6 +15,7 @@
     bottom: 0;
     background: radial-gradient(circle at 20% 35%, rgba(76, 0, 255, 0.15) 0%, transparent 50%);
     z-index: 1;
+    pointer-events: none;
 }
 
 .hero-content {
@@ -115,13 +108,13 @@
     height: 380px;
     overflow: hidden;
     border-radius: 10px;
-    transform: rotate(-3deg);
+    transform: rotate(0deg);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     transition: all 0.5s ease;
 }
 
 .profile-image-container:hover {
-    transform: rotate(0deg);
+    transform: rotate(-3deg);
 }
 
 .profile-image-container::before {
@@ -169,6 +162,8 @@
     animation: fadeIn 0.8s forwards;
 }
 
+
+
 @keyframes fadeIn {
     to {
         opacity: 1;
@@ -198,86 +193,4 @@
     .quote-box {
         margin: 0 auto;
     }
-}
-
-/* Skill Section */
-
-@keyframes appear {
-    from {
-        opacity: 0;
-        transform: scale(0.5);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.appear {
-    animation: appear linear;
-    animation-timeline: scroll(root block);
-}
-
-#Icon {
-    transition: 0.3s ease-in-out;
-    font-size: 3em;
-}
-
-#imgIcon {
-    scale: 2;
-    transition: 0.3s ease-in-out;
-}
-
-#imgIcon:hover {
-    transform: translateY(-3px);
-}
-
-#Icon:hover {
-    transform: translateY(-3px);
-}
-
-/* Blog */
-
-/* จัดเรียง Edit Button และ Search Box ในบรรทัดเดียวกัน */
-#edit-search-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* กำหนดให้ช่องค้นหามีขนาดเล็กลง */
-#search-box {
-    max-width: 300px;
-    width: 100%;
-}
-
-/* ปรับปุ่ม Edit */
-#edit-button {
-    padding: 0.5rem 1rem;
-    /* ปรับขนาดปุ่ม */
-}
-
-#blog-box {
-    transition: 0.3s ease-in-out;
-}
-
-#blog-box:hover {
-    cursor: pointer;
-    transform: translateY(-3px);
-}
-
-#blog-wrapper {
-    width: 100%;
-}
-
-/* Blog View */
-
-#blogImgShow {
-    width: 140px;
-    height: 140px;
-}
-
-#imgView {
-    width: 600px;
-    height: 600px;
 }

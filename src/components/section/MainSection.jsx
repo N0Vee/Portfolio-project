@@ -47,7 +47,7 @@ const MainSection = () => {
                                 </p>
                             </div>
                             
-                            <div className="social-links is-flex">
+                            <div className="social-links is-flex is-align-items-center">
                                 <a href="https://github.com/N0Vee" target="_blank" rel="noopener noreferrer" className="has-text-white" aria-label="GitHub">
                                     <i className="fab fa-github"></i>
                                 </a>
@@ -78,7 +78,10 @@ const MainSection = () => {
                     </div>
                 </div>
             </div>
+
+            <div class="separator"></div>
         </section>
+
     );
 };
 

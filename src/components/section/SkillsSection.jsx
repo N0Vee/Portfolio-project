@@ -9,7 +9,7 @@ export const SkillsSection = () => {
         "Backend": ["Node.js", "Express", "Bun", "Elysia.js"],
         "Databases": ["MySQL", "PostgreSQL", "MongoDB", "Firebase"],
         "Full-Stack Framework": ["Next.js"],
-        "Software": ["Postman"]
+        "Software": ["Postman", "Docker"]
     };
     
     const [isVisible, setIsVisible] = useState(false);

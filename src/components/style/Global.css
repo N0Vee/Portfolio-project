@@ -2,3 +2,41 @@
     font-family: Font1;
     src: url(/public/fonts/JosefinSans-VariableFont_wght.ttf);
 }
+
+/* Global background applied to body */
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+}
+ 
+/* Primary radial gradient overlay */
+#page-bg::before {
+    content: "";
+    position: absolute; /* fixed so it stays consistent across sections */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 20% 35%, rgba(98, 0, 255, 0.18) 0%, transparent 55%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Secondary radial gradient overlay */
+#page-bg::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 75% 65%, rgba(0, 186, 255, 0.12) 0%, transparent 60%);
+    z-index: -1;
+    pointer-events: none;
+}
+ 
+/* Section uses transparent background */
+#skill-bg {
+    background: transparent;
+    padding: 5rem 1.5rem;
+}

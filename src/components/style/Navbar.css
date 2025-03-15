@@ -1,9 +1,10 @@
 .navbar {
     background-color: #14161a;
+    z-index: 1;
 }
 
 #nav-bg {
-    background-color: #14161a;
+    background-color: #14161a; 
 }
 
 #logoutIcon {

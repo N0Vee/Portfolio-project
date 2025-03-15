@@ -1,85 +1,64 @@
-import React from 'react';
-import { div } from 'three/tsl';
+import React, { useEffect } from 'react';
 
 export const SkillsSection = () => {
-    const frontend = ["html5", "css3", "js", "react"];
-    const ui = ["Bulma", "bootstrap", "Tailwind"];
-    const backend = ["node-js", "Express"];
-    const database = ["MySQL", "PostgreSQL", "MongoDB", "Firebase"];
-
-    const iconMap = {
-        "Bulma": "https://bulma.io/assets/brand/Bulma%20Logo%20White.png",
-        "Tailwind": "https://www.loopple.com/img/tailwind-logo.png",
-        "Express": "https://img.icons8.com/?size=100&id=kg46nzoJrmTR&format=png&color=abb1bf",
-        "MySQL": "https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg",
-        "PostgreSQL": "https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg",
-        "MongoDB": "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg",
-        "Firebase": "https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-original-wordmark.svg"
+    const skills = {
+        "Frontend / Frameworks": ["HTML5", "CSS3", "JavaScript", "React"],
+        "UI Libraries": ["Bulma", "Bootstrap", "Tailwind"],
+        "Backend": ["Node.js", "Express", "Bun", "Elysia.js"],
+        "Databases": ["MySQL", "PostgreSQL", "MongoDB", "Firebase"],
+        "Full-Stack Framework" : ["Next.js"],
+        "Software" : ["Postman"]
     };
-
-
-    const SkillSectionFactory = (type, skills) => {
-        return () => (
-            <>
-                <p id={type} className='mt-4 has-text-centered appear'>{type}</p>
-                <div className="grid">
-                    <div className="columns is-multiline">
-                        {skills.map((iconName, index) => (
-                            <div key={index} className="column is-one-four">
-                                <div className="is-center mx-5 my-5">
-                                    <span className="icon appear">
-                                        {iconMap[iconName] ? (
-                                            <img id='imgIcon' src={iconMap[iconName]} alt={iconName} className='' />
-                                        ) : (
-                                            <i id='Icon' className={'fab fa-' + iconName}></i>
-                                        )}
-                                    </span>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </>
-        );
-    };
-
-
-    const FrontendSection = SkillSectionFactory("Frontend/Framework", frontend);
-    const UISection = SkillSectionFactory("UI Libraries", ui);
-    const BackendSection = SkillSectionFactory("Backend", backend);
-    const DatabaseSection = SkillSectionFactory("Databases", database);
-
+    
+    useEffect(() => {
+        // Create glowing dots effect
+        const container = document.querySelector('.skills-container');
+        if (container) {
+            for (let i = 0; i < 20; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'dot';
+                dot.style.left = `${Math.random() * 100}%`;
+                dot.style.top = `${Math.random() * 100}%`;
+                dot.style.opacity = (Math.random() * 0.5).toFixed(2);
+                document.querySelector('.glowing-dots-skills').appendChild(dot);
+            }
+        }
+    }, []);
+    
     return (
-        <div id='skill-bg'>
-            <div className="glowing-dots">
-                {[...Array(30)].map((_, i) => (
-                    <div
-                        key={i}
-                        className="dot"
-                        style={{
-                            left: `${Math.random() * 100}%`,
-                            top: `${Math.random() * 100}%`,
-                            opacity: Math.random() * 0.5 + 0.1,
-                            width: `${Math.random() * 4 + 1}px`,
-                            height: `${Math.random() * 4 + 1}px`
-                        }}
-                    />
-                ))}
-            </div>
-
-            <div className="container mt-6">
-                <div className="content">
-                    <div className="is-flex is-justify-content-center is-flex-direction-column is-align-items-center">
-                        <h3 className='mt-6'>Featured Skill</h3>
-                        <FrontendSection />
-                        <UISection />
-                        <BackendSection />
-                        <DatabaseSection />
-                    </div>
+        <section id="skill-bg" className="section">
+            <div className="glowing-dots-skills"></div>
+            <div className="container skills-container">
+                <h2 className="title is-2 has-text-centered mb-6 has-text-white fade-in main-title">
+                    
+                </h2>
+                
+                <div className="skills-grid">
+                    {Object.entries(skills).map(([category, skillList], index) => (
+                        <div 
+                            className="skill-category-card fade-in" 
+                            key={index}
+                            style={{animationDelay: `${0.2 + index * 0.1}s`}}
+                        >
+                            <div className="category-header">
+                                <h3 className="category-title">{category}</h3>
+                            </div>
+                            <div className="skills-content">
+                                {skillList.map((skill, i) => (
+                                    <span 
+                                        key={i} 
+                                        className="skill-tag fade-in"
+                                        style={{animationDelay: `${0.4 + i * 0.05}s`}}
+                                    >
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
                 </div>
             </div>
-        </div>
-
+        </section>
     );
 };
 

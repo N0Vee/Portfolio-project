@@ -12,6 +12,10 @@ const MainSection = () => {
     return (
         <section className='hero is-fullheight' id='page-bg'>
 
+
+            <div class="particles"></div>
+
+            
             <div className="glowing-dots">
                 {[...Array(30)].map((_, i) => (
                     <div 
@@ -62,10 +66,7 @@ const MainSection = () => {
                                 </a>
                                 
                                 <button className="button about-button has-text-white">
-                                    <span>About me</span>
-                                    <span className="icon">
-                                        <i className="fas fa-arrow-right"></i>
-                                    </span>
+                                    <span>Resume</span>
                                 </button>
                             </div>
                         </div>
@@ -79,7 +80,15 @@ const MainSection = () => {
                 </div>
             </div>
 
-            <div class="separator"></div>
+            <div className="section-separator">
+                <div className="separator-content">
+                    <div className="separator-line"></div>
+                    <div className="separator-icon">
+                        <i className="fas fa-code"></i>
+                    </div>
+                    <div className="separator-line"></div>
+                </div>
+            </div>
         </section>
 
     );

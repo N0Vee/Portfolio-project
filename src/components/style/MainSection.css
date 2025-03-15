@@ -1,22 +1,6 @@
 /* Main Section */
 
-#page-bg {
-    background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-    position: relative;
-    overflow: hidden;
-}
 
-#page-bg::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: radial-gradient(circle at 20% 35%, rgba(76, 0, 255, 0.15) 0%, transparent 50%);
-    z-index: 1;
-    pointer-events: none;
-}
 
 .hero-content {
     position: relative;
@@ -160,6 +144,57 @@
     opacity: 0;
     transform: translateY(20px);
     animation: fadeIn 0.8s forwards;
+}
+
+/* Section Separator Styles */
+.section-separator {
+    width: 100%;
+    padding: 20px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.separator-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.separator-line {
+    flex-grow: 1;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        rgba(255,255,255,0) 0%, 
+        rgba(255,255,255,0.3) 50%, 
+        rgba(255,255,255,0) 100%
+    );
+}
+
+.separator-icon {
+    padding: 0 20px;
+    color: #ffffff;
+    font-size: 1.5rem;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.separator-icon:hover {
+    transform: rotate(180deg);
+    opacity: 1;
+    color: #4c00ff;
+}
+
+/* Add this animation if you want the separator to have a subtle pulse */
+@keyframes separator-pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+    100% { opacity: 0.5; }
+}
+
+.separator-icon i {
+    animation: separator-pulse 3s infinite ease-in-out;
 }
 
 

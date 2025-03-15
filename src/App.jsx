@@ -25,9 +25,9 @@ function App() {
         <Route path="/" element={
           <>
             <MainSection />
-            <SkillsSection />
             <AboutSection />
             <EducationSection />
+            <SkillsSection />
             <ProjectSection />
           </>
         } />

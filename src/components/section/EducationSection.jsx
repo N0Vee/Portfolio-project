@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+import "../style/EducationSection.css";
 
 const EducationSection = () => {
     const [isVisible, setIsVisible] = useState(false);

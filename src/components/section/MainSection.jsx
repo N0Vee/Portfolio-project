@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import TypeWriter from '../lib/TypeWriter';
+import "../style/MainSection.css";
 
 const MainSection = () => {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -52,16 +53,16 @@ const MainSection = () => {
                             </div>
                             
                             <div className="social-links is-flex is-align-items-center">
-                                <a href="https://github.com/N0Vee" target="_blank" rel="noopener noreferrer" className="has-text-white" aria-label="GitHub">
+                                <a href="https://github.com/N0Vee" target="_blank" rel="noopener noreferrer" className="has-text-white socialButton" aria-label="GitHub">
                                     <i className="fab fa-github"></i>
                                 </a>
-                                <a href="https://www.linkedin.com/in/wanichanon-saelee-0b2717252/" target="_blank" rel="noopener noreferrer" className="has-text-white" aria-label="LinkedIn">
+                                <a href="https://www.linkedin.com/in/wanichanon-saelee-0b2717252/" target="_blank" rel="noopener noreferrer" className="has-text-white socialButton" aria-label="LinkedIn">
                                     <i className="fab fa-linkedin"></i>
                                 </a>
-                                <a href="https://discordapp.com/users/Nveee#9120" target="_blank" rel="noopener noreferrer" className="has-text-white" aria-label="Discord">
+                                <a href="https://discordapp.com/users/Nveee#9120" target="_blank" rel="noopener noreferrer" className="has-text-white socialButton" aria-label="Discord">
                                     <i className="fab fa-discord"></i>
                                 </a>
-                                <a href="mailto:contact@wanichanon.com" className="has-text-white" aria-label="Email">
+                                <a href="mailto:contact@wanichanon.com" className="has-text-white socialButton" aria-label="Email">
                                     <i className="fas fa-envelope"></i>
                                 </a>
                                 

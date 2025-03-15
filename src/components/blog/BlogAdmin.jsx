@@ -54,10 +54,10 @@ function BlogAdmin() {
     
 
     return (
-        <div>
-            <div className="container">
+        <div id='blog-bg'>
+            <div className="container pt-6">
 
-                <h1 className='has-text-centered mt-6 is-size-2'>Blog</h1>
+                <h1 className='has-text-centered is-size-2'>Blog</h1>
                 
                 {Blog ? (
                     <ul>

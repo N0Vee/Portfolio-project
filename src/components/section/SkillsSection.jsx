@@ -1,4 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { motion } from 'framer-motion';
+import "../style/SkillsSection.css";
 
 export const SkillsSection = () => {
     const skills = {
@@ -6,12 +8,35 @@ export const SkillsSection = () => {
         "UI Libraries": ["Bulma", "Bootstrap", "Tailwind"],
         "Backend": ["Node.js", "Express", "Bun", "Elysia.js"],
         "Databases": ["MySQL", "PostgreSQL", "MongoDB", "Firebase"],
-        "Full-Stack Framework" : ["Next.js"],
-        "Software" : ["Postman"]
+        "Full-Stack Framework": ["Next.js"],
+        "Software": ["Postman"]
     };
     
+    const [isVisible, setIsVisible] = useState(false);
+    const sectionRef = useRef(null);
+    
     useEffect(() => {
-        // Create glowing dots effect
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                }
+            },
+            { threshold: 0.2 }
+        );
+        
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+        
+        return () => {
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current);
+            }
+        };
+    }, []);
+    
+    useEffect(() => {
         const container = document.querySelector('.skills-container');
         if (container) {
             for (let i = 0; i < 20; i++) {
@@ -25,38 +50,48 @@ export const SkillsSection = () => {
         }
     }, []);
     
+    // For debugging
+    useEffect(() => {
+        console.log("isVisible:", isVisible);
+    }, [isVisible]);
+    
     return (
-        <section id="skill-bg" className="section">
+        <section id="skill-bg" className="section" ref={sectionRef}>
             <div className="glowing-dots-skills"></div>
             <div className="container skills-container">
-                <h2 className="title is-2 has-text-centered mb-6 has-text-white fade-in main-title">
-                    
-                </h2>
-                
-                <div className="skills-grid">
+                <motion.div
+                    className="skills-grid"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }}
+                    transition={{ duration: 0.8 }}
+                >
                     {Object.entries(skills).map(([category, skillList], index) => (
-                        <div 
-                            className="skill-category-card fade-in" 
+                        <motion.div
+                            className="skill-category-card"
                             key={index}
-                            style={{animationDelay: `${0.2 + index * 0.1}s`}}
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }}
+                            transition={{ duration: 0.8, delay: index * 0.1 }}
                         >
                             <div className="category-header">
                                 <h3 className="category-title">{category}</h3>
                             </div>
                             <div className="skills-content">
                                 {skillList.map((skill, i) => (
-                                    <span 
-                                        key={i} 
-                                        className="skill-tag fade-in"
-                                        style={{animationDelay: `${0.4 + i * 0.05}s`}}
+                                    <motion.span
+                                        key={i}
+                                        className="skill-tag"
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.9 }}
+                                        transition={{ duration: 0.5, delay: isVisible ? index * 0.1 + i * 0.05 : 0 }}
                                     >
                                         {skill}
-                                    </span>
+                                    </motion.span>
                                 ))}
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

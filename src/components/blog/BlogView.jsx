@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
+import "../style/BlogView.css";
 
 function BlogView() {
     const [blog, setBlog] = useState(null);
@@ -92,7 +93,7 @@ function BlogView() {
 
                     {/* Conclusion */}
                     <div className="blog-conclusion">
-                        <p className="has-text-grey-dark">{blog.DetailConclusion}</p>
+                        <p className="has-text-grey">{blog.DetailConclusion}</p>
                     </div>
 
 
@@ -101,7 +102,7 @@ function BlogView() {
                         <div className="has-text-centered my-5">
                             <a
                                 href={blog.BlogUrl}
-                                className="button is-primary is-medium"
+                                className="button is-outlined findoutButton"
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
@@ -113,12 +114,12 @@ function BlogView() {
 
                     {/* Navigation */}
                     <div className="blog-navigation">
-                        <button className="button is-light" onClick={() => navigate('/blog')}>
+                        <button className="button is-light backButton" onClick={() => navigate('/blog')}>
                             <span className="icon"><i className="fas fa-arrow-left"></i></span>
                             <span>Back to Blogs</span>
                         </button>
                         <div>
-                            <button className="button is-light" onClick={() => window.print()}>
+                            <button className="button is-light printButton" onClick={() => window.print()}>
                                 <span className="icon"><i className="fas fa-print"></i></span>
                                 <span>Print</span>
                             </button>

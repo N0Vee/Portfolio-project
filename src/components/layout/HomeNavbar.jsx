@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { GoogleLogin, GoogleOAuthProvider, googleLogout } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
 import Cookies from "js-cookie";
+import "../style/Navbar.css";
 
 function HomeNavbar() {
     const location = useLocation();
@@ -66,10 +67,10 @@ function HomeNavbar() {
                                         <span>Education</span>
                                     </span>
                                 </Link>
-                                <Link to="/contact" className={checkPath("/contact")}>
+                                <Link to="/projects" className={checkPath("/projects")}>
                                     <span className="icon-text">
-                                        <span className="icon"><i className="fas fa-at"></i></span>
-                                        <span>Contact</span>
+                                        <span className="icon"><i className="fas fa-code"></i></span>
+                                        <span>Projects</span>
                                     </span>
                                 </Link>
                             </div>

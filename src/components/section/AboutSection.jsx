@@ -1,16 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+import "../style/AboutSection.css";
 
 const AboutSection = () => {
     const [isVisible, setIsVisible] = useState(false);
+    const sectionRef = useRef(null);
 
     useEffect(() => {
-        setIsVisible(true);
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                }
+            },
+            { threshold: 0.2 }
+        );
+
+        if (sectionRef.current) {
+            observer.observe(sectionRef.current);
+        }
+
+        return () => {
+            if (sectionRef.current) {
+                observer.unobserve(sectionRef.current);
+            }
+        };
     }, []);
 
     return (
         <>
-            <section className='About' id='about-bg'>
+            <section className='About' id='about-bg' ref={sectionRef}>
                 <div className="about-container">
                     <motion.div
                         className="about-header"
@@ -27,7 +46,7 @@ const AboutSection = () => {
                             className="about-image"
                             initial={{ opacity: 0, x: -50 }}
                             animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : -50 }}
-                            transition={{ duration: 0.8, delay: 0.2 }}
+                            transition={{ duration: 0.8, delay: 0.3 }}
                         >
                             <div className="image-container">
                                 <div className="image-placeholder">
@@ -40,7 +59,7 @@ const AboutSection = () => {
                             className="about-text"
                             initial={{ opacity: 0, x: 50 }}
                             animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : 50 }}
-                            transition={{ duration: 0.8, delay: 0.4 }}
+                            transition={{ duration: 0.8, delay: 0.6 }}
                         >
                             <h2>Who I Am</h2>
                             <p>My name is Wanichanon SaeLee, but you can call me Aum. I'm a web developer with a passion for exploring new ideas, constantly thinking, creating, and pushing boundaries.

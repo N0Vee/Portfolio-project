@@ -13,7 +13,6 @@
 
 #logoutIcon:hover {
     color: #4c00ff;
-    
     transform: translateY(-1px);
     box-shadow: 0 5px 15px rgba(76, 0, 255, 0.4);
 }

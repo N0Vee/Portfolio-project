@@ -1,21 +1,19 @@
 .blog-header {
     position: relative;
     padding: 12rem 0 8rem;
-    background-color: #f5f5f5;
+    background-color: #1a1a1a; /* Dark background */
     margin-bottom: 2rem;
     overflow: hidden;
 }
-
 .blog-cover-overlay {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.5); /* Slightly darker overlay */
     z-index: 1;
 }
-
 .blog-cover-image {
     position: absolute;
     top: 0;
@@ -25,130 +23,144 @@
     object-fit: cover;
     z-index: 0;
 }
-
 .blog-header-content {
     position: relative;
     z-index: 2;
     color: white;
 }
-
 .blog-meta {
     margin-bottom: 1.5rem;
     font-size: 0.9rem;
-    color: #888;
+    color: #bbb; /* Lighter gray for better contrast */
 }
-
 .blog-meta span {
     margin-right: 1rem;
 }
-
 .blog-meta i {
     margin-right: 0.3rem;
 }
-
 .blog-content-wrapper {
     max-width: 800px;
     margin: 0 auto;
     padding: 2rem;
-    background-color: white;
-    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+    background-color: #111111; /* Dark background */
+    color: #f0f0f0; /* Light text */
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     margin-top: -5rem;
     position: relative;
     z-index: 3;
+    border: 1px solid rgba(76, 0, 255, 0.2); /* Subtle purple border */
 }
-
 .blog-body {
     font-size: 1.1rem;
     line-height: 1.8;
-    color: #444;
+    color: #e0e0e0; /* Light gray text */
 }
-
 .blog-body p {
     margin-bottom: 1.5rem;
 }
-
 .blog-conclusion {
     margin: 3rem 0 2rem;
     padding: 2rem;
-    background-color: #f8f9fa;
+    background-color: #1e1e1e; /* Slightly lighter dark background */
     border-radius: 5px;
     font-style: italic;
+    border-left: 3px solid #8a2be2; /* Purple accent */
 }
-
 .related-posts {
     margin-top: 4rem;
     padding-top: 2rem;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #333; /* Darker separator */
 }
-
 .related-post-item {
     padding: 1rem;
     border-radius: 5px;
     transition: all 0.2s ease;
 }
-
 .related-post-item:hover {
-    background-color: #f5f5f5;
+    background-color: #1e1e1e; /* Subtle hover effect */
 }
-
 .blog-navigation {
     display: flex;
     justify-content: space-between;
     margin: 3rem 0 1rem;
     padding-top: 1.5rem;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #333; /* Darker separator */
 }
-
-.social-share {
-    display: flex;
-    justify-content: center;
-    margin: 2rem 0;
-}
-
-.social-share button {
-    margin: 0 0.5rem;
-    height: 2.5rem;
-    width: 2.5rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .tag-pills {
     margin: 1.5rem 0;
 }
-
 .tag-pills .tag {
     margin-right: 0.5rem;
     margin-bottom: 0.5rem;
+    background-color: #2a2a2a; /* Dark tag background */
+    color: white; /* Purple text */
+    border: 1px solid #4c00ff; /* Purple border */
 }
-
 .floating-action {
     position: fixed;
     bottom: 2rem;
     right: 2rem;
     z-index: 100;
 }
-
 .floating-action button {
     height: 3.5rem;
     width: 3.5rem;
     border-radius: 50%;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 10px rgba(76, 0, 255, 0.4); /* Purple shadow */
+    background: linear-gradient(135deg, #4c00ff 0%, #8a2be2 100%); /* Purple gradient */
+    color: white;
+    border: none;
 }
-
 /* Customize Bulma */
 .navbar.is-transparent {
     background-color: transparent;
 }
-
+.findoutButton {
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #4c00ff 0%, #8a2be2 100%); /* Purple gradient */
+    color: white;
+    border: none;
+}
+.findoutButton:hover {
+    color: white;
+    border: none !important;
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #5a14ff 0%, #9742e6 100%); /* Slightly lighter gradient */
+    box-shadow: 0 7px 20px rgba(76, 0, 255, 0.3);
+}
+.backButton {
+    border: 1px solid #4c00ff; /* Purple border */
+    color: #8a2be2; /* Purple text */
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+.backButton:hover {
+    color: white;
+    border: none;
+    background: linear-gradient(135deg, #4c00ff 0%, #8a2be2 100%); /* Purple gradient */
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(76, 0, 255, 0.3);
+}
+.printButton {
+    border: 1px solid #4c00ff; /* Purple border */
+    color: #8a2be2; /* Purple text */
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+.printButton:hover {
+    color: white;
+    border: none;
+    background: linear-gradient(135deg, #4c00ff 0%, #8a2be2 100%); /* Purple gradient */
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(76, 0, 255, 0.3);
+}
 @media screen and (max-width: 768px) {
     .blog-header {
         padding: 8rem 0 6rem;
     }
-    
+   
     .blog-content-wrapper {
         padding: 1.5rem;
         margin-top: -3rem;

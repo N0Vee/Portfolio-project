@@ -75,7 +75,7 @@ function HomeNavbar() {
                                 </Link>
                             </div>
                             <div className="navbar-end">
-                                <Link to="/blog" className={checkPath("/blog")}>
+                                <Link to="https://ink-space-ten.vercel.app/" className={checkPath("/blog")}>
                                     <span className="icon-text">
                                         <span className="icon"><i className="fas fa-flag"></i></span>
                                         <span>Blog</span>

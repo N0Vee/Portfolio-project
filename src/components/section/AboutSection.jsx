@@ -62,12 +62,10 @@ const AboutSection = () => {
                             transition={{ duration: 0.8, delay: 0.6 }}
                         >
                             <h2>Who I Am</h2>
-                            <p>My name is Wanichanon SaeLee, but you can call me Aum. I'm a web developer with a passion for exploring new ideas, constantly thinking, creating, and pushing boundaries.
-
-                                With a deep interest in both technology and design, I strive to build solutions that are not only functional but also visually compelling. I’m always looking for ways to improve, innovate, and craft digital experiences that leave a lasting impact.</p>
+                            <p>Hello, my name is Wanichanon SaeLee, but you can call me Aum. I’m an IT student at KMUTNB with a passion for web development. I have skills in Next.js, React, Node.js, and UX/UI design. I’m always looking for ways to create websites that are both functional and visually appealing. I’m eager to learn new things and continue improving myself.</p>
 
                             <h2>My Journey</h2>
-                            <p>What started as a curiosity about how things work turned into a passion for building and creating. Every project is a chance for me to learn, experiment, and refine my skills—blending technology with design to craft meaningful digital experiences. I’m always looking for new challenges to push my creativity and technical abilities further.</p>
+                            <p>What started as a curiosity about how things work led me to develop my skills in website development. Through personal projects, I’ve had the opportunity to experiment and grow my abilities. I’m always looking for new challenges to expand my knowledge and technical skills.</p>
                         </motion.div>
                     </div>
                 </div>

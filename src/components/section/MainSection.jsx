@@ -66,7 +66,7 @@ const MainSection = () => {
                                     <i className="fas fa-envelope"></i>
                                 </a>
                                 
-                                <button className="button about-button has-text-white">
+                                <button onClick={window.open('images/Wanichanon_SaeLee_Resume.pdf')} className="button about-button has-text-white">
                                     <span>Resume</span>
                                 </button>
                             </div>

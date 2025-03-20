@@ -50,11 +50,6 @@ export const SkillsSection = () => {
         }
     }, []);
     
-    // For debugging
-    useEffect(() => {
-        console.log("isVisible:", isVisible);
-    }, [isVisible]);
-    
     return (
         <section id="skill-bg" className="section" ref={sectionRef}>
             <div className="glowing-dots-skills"></div>

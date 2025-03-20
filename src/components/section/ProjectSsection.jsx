@@ -42,7 +42,7 @@ const ProjectSection = () => {
                 <div className="section-header has-text-centered mb-6">
                     <h2 className="title is-2">Projects</h2>
                     <div className="divider"></div>
-                    <p className="subtitle is-5">Check out some of our recent work</p>
+                    <p className="subtitle is-5">Check out some of my recent work</p>
                 </div>
 
                 <Masonry

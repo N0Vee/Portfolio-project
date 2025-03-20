@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { motion } from 'framer-motion';
 import "../style/EducationSection.css";
 
 const EducationSection = () => {
@@ -28,132 +27,82 @@ const EducationSection = () => {
     }, []);
     
     return (
-        <>
-            <section className='Education' id='education-bg' ref={sectionRef}>
-                <div className="education-container">
-                    <motion.div 
-                        className="education-header"
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }}
-                        transition={{ duration: 0.8 }}
-                    >
-                        <h1 className="education-title">My Educational Journey</h1>
-                        <div className="education-underline"></div>
-                        <p className="education-subtitle">The path that shaped my knowledge and skills</p>
-                    </motion.div>
+        <section className='education' id='education' ref={sectionRef}>
+            <div className="education-container">
+                <div className={`education-header ${isVisible ? 'fade-in' : ''}`}>
+                    <h2 className="education-title">
+                        My <span className="highlight">Education</span> Journey
+                    </h2>
+                </div>
+                
+                <div className="section-separator">
+                    <div className="separator-content">
+                        <div className="separator-line"></div>
+                        <div className="separator-icon">
+                            <i className="fas fa-graduation-cap"></i>
+                        </div>
+                        <div className="separator-line"></div>
+                    </div>
+                </div>
+                
+                <div className="timeline-container">
+                    <div className="timeline-track">
+                        <div 
+                            className="timeline-progress" 
+                            style={{ height: isVisible ? '100%' : '0%' }}
+                        ></div>
+                    </div>
                     
-                    <div className="timeline-wrapper">
-                        <div className="timeline-decoration">
-                            <div className="timeline-stars">
-                                {[...Array(5)].map((_, i) => (
-                                    <div 
-                                        key={i} 
-                                        className="star"
-                                        style={{
-                                            top: `${15 + i * 20}%`,
-                                            left: `${(i % 2) * 5}px`,
-                                            animationDelay: `${i * 0.2}s`
-                                        }}
-                                    ></div>
-                                ))}
+                    <div className="timeline-events">
+                        <div className={`timeline-event ${isVisible ? 'fade-in' : ''}`} style={{animationDelay: "0.2s"}}>
+                            <div className="timeline-marker"></div>
+                            <div className="timeline-content">
+                                <div className="education-card-header">
+                                    <h3>KING MONGKUT'S UNIVERSITY OF TECHNOLOGY NORTH BANGKOK</h3>
+                                    <p className="timeline-year">2022 - Present</p>
+                                </div>
+                                <div className="timeline-description">
+                                    <p>Bachelor's degree in IT, Software Engineering</p>
+                                    <ul className="education-highlights">
+                                        <li>Faculty of Information Technology and Management</li>
+                                        <li>Current GPA: 3.14</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         
-                        <div className="timeline-container">
-                            <div className="timeline-track">
-                                <div 
-                                    className="timeline-progress" 
-                                    style={{ height: isVisible ? '100%' : '0%' }}
-                                ></div>
-                            </div>
-                            
-                            <div className="timeline-events">
-                                <motion.div 
-                                    className="timeline-event"
-                                    initial={{ opacity: 0, x: -50 }}
-                                    animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : -50 }}
-                                    transition={{ duration: 0.7, delay: 0.3 }}
-                                >
-                                    <div className="timeline-marker"><span>3</span></div>
-                                    <div className="timeline-content">
-                                        <div className="education-card-header">
-                                            <div className="education-logo kmutb"></div>
-                                            <div className="education-title-group">
-                                                <h3>KING MONGKUT'S UNIVERSITY OF TECHNOLOGY NORTH BANGKOK (KMUTNB)</h3>
-                                                <p className="timeline-year">2022 - Currently (Year 3)</p>
-                                            </div>
-                                        </div>
-                                        <div className="timeline-description">
-                                            <p>Currently pursuing a degree in IT with a major in Software Engineering, focusing on modern web development technologies and UI/UX design to build seamless and user-friendly digital experiences.</p>
-                                            <ul className="education-highlights">
-                                                <li>Faculty : FITM</li>
-                                                <li>Branch : IT</li>
-                                                <li>Degree : 3.14</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </motion.div>
-                                
-                                <motion.div 
-                                    className="timeline-event"
-                                    initial={{ opacity: 0, x: -50 }}
-                                    animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : -50 }}
-                                    transition={{ duration: 0.7, delay: 0.6 }}
-                                >
-                                    <div className="timeline-marker"><span>2</span></div>
-                                    <div className="timeline-content">
-                                        <div className="education-card-header">
-                                            <div className="education-logo sbac"></div>
-                                            <div className="education-title-group">
-                                                <h3>SIAM BUSINESS ADMINISTRATION TECHNOLOGICAL COLLEGE (SBAC)</h3>
-                                                <p className="timeline-year">2019 - 2022</p>
-                                            </div>
-                                        </div>
-                                        <div className="timeline-description">
-                                            <p>Graduated with a vocational degree in IT, covering a broad range of foundational skills. Passionate about web development, software engineering, and UI/UX design, always eager to learn and improve.</p>
-                                            <ul className="education-highlights">
-                                                <li>Branch : IT</li>
-                                                <li>Degree : 3.03</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </motion.div>
-                                
-                                <motion.div 
-                                    className="timeline-event"
-                                    initial={{ opacity: 0, x: -50 }}
-                                    animate={{ opacity: isVisible ? 1 : 0, x: isVisible ? 0 : -50 }}
-                                    transition={{ duration: 0.7, delay: 0.9 }}
-                                >
-                                    <div className="timeline-marker"><span>1</span></div>
-                                    <div className="timeline-content">
-                                        <div className="education-card-header">
-                                            <div className="education-logo rajavinit"></div>
-                                            <div className="education-title-group">
-                                                <h3>Rajavinit Bangkhen School</h3>
-                                                <p className="timeline-year">2017 - 2019</p>
-                                            </div>
-                                        </div>
-                                        <div className="timeline-description">
-                                            <p>Graduated from Rajavinit Bangkhen School with a background in Science and Mathematics, which inspired my interest in IT and software development.</p>
-                                        </div>
-                                    </div>
-                                </motion.div>
+                        <div className={`timeline-event ${isVisible ? 'fade-in' : ''}`} style={{animationDelay: "0.4s"}}>
+                            <div className="timeline-marker"></div>
+                            <div className="timeline-content">
+                                <div className="education-card-header">
+                                    <h3>SIAM BUSINESS ADMINISTRATION TECHNOLOGICAL COLLEGE</h3>
+                                    <p className="timeline-year">2019 - 2022</p>
+                                </div>
+                                <div className="timeline-description">
+                                    <p>Vocational degree in Information Technology</p>
+                                    <ul className="education-highlights">
+                                        <li>GPA: 3.03</li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         
-                        <div className="timeline-end-marker">
-                            <motion.div 
-                                className="end-marker-circle"
-                                initial={{ scale: 0 }}
-                                animate={{ scale: isVisible ? 1 : 0 }}
-                                transition={{ duration: 0.5, delay: 1.5 }}
-                            ></motion.div>
+                        <div className={`timeline-event ${isVisible ? 'fade-in' : ''}`} style={{animationDelay: "0.6s"}}>
+                            <div className="timeline-marker"></div>
+                            <div className="timeline-content">
+                                <div className="education-card-header">
+                                    <h3>Rajavinit Bangkhen School</h3>
+                                    <p className="timeline-year">2017 - 2019</p>
+                                </div>
+                                <div className="timeline-description">
+                                    <p>Science and Mathematics program</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </>
+            </div>
+        </section>
     );
 };
 

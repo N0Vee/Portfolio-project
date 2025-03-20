@@ -14,7 +14,7 @@ const MainSection = () => {
         <section className='hero is-fullheight' id='page-bg'>
 
 
-            <div class="particles"></div>
+            <div className="particles"></div>
 
             
             <div className="glowing-dots">

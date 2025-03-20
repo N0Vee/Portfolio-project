@@ -18,6 +18,8 @@
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
+    position: relative;
+    z-index: 2;
 }
 
 .about-header {
@@ -27,20 +29,21 @@
 
 .about-title {
     font-size: 3.5rem;
-    font-weight: 600;
+    font-weight: 800;
     margin-bottom: 1rem;
-    background: linear-gradient(135deg, #9d65ff 0%, #54c5ff 100%);
+    background: linear-gradient(135deg, #4c00ff 0%, #8a2be2 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     display: inline-block;
+    letter-spacing: -1px;
 }
 
 .about-underline {
     height: 4px;
     width: 80px;
     margin: 0 auto;
-    background: linear-gradient(135deg, #9d65ff 0%, #54c5ff 100%);
+    background: linear-gradient(135deg, #4c00ff 0%, #8a2be2 100%);
     border-radius: 2px;
 }
 
@@ -59,6 +62,13 @@
     padding-bottom: 120%;
     overflow: hidden;
     border-radius: 10px;
+    transform: rotate(0deg);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s ease;
+}
+
+.image-container:hover {
+    transform: rotate(-3deg);
 }
 
 .image-placeholder {
@@ -68,8 +78,20 @@
     width: 100%;
     height: 100%;
     background: linear-gradient(135deg, #333 0%, #222 100%);
-    border: 2px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(76, 0, 255, 0.3);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.5s ease;
+}
+
+.image-placeholder img:hover {
+    transform: scale(1.05);
 }
 
 .about-text {
@@ -79,7 +101,8 @@
 .about-text h2 {
     font-size: 1.8rem;
     margin: 0 0 1rem;
-    color: #9d65ff;
+    color: #4c00ff;
+    font-weight: 600;
 }
 
 .about-text p {
@@ -89,8 +112,73 @@
     font-size: 1.1rem;
 }
 
+/* Add highlight effect similar to MainSection */
+.about-highlight {
+    position: relative;
+    display: inline-block;
+}
 
-/* Responsive adjustments - modified to maintain row layout */
+.about-highlight::after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 8px;
+    background-color: rgba(76, 0, 255, 0.3);
+    z-index: -1;
+}
+
+/* Quote box styling similar to MainSection */
+.about-quote {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-left: 3px solid #4c00ff;
+    border-radius: 4px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.about-quote:hover {
+    transform: translateY(-3px);
+}
+
+/* Glowing dots background effect */
+.about-glowing-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    top: 0;
+    left: 0;
+}
+
+.about-dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #4c00ff;
+    border-radius: 50%;
+    opacity: 0.4;
+}
+
+/* Animation for fade in effect */
+.about-fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: aboutFadeIn 0.8s forwards;
+}
+
+@keyframes aboutFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive adjustments */
 @media (max-width: 992px) {
     .about-image {
         flex: 1;
@@ -111,7 +199,7 @@
 
 @media (max-width: 768px) {
     .about-content {
-        flex-direction: column;  /* Only switch to column at smaller screen size */
+        flex-direction: column;
         gap: 2rem;
     }
     
@@ -124,6 +212,10 @@
         padding-bottom: 60%;
         max-width: 400px;
         margin: 0 auto;
+    }
+    
+    .about-text {
+        text-align: center;
     }
 }
 

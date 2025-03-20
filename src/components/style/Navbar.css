@@ -1,18 +1,133 @@
 .navbar {
-    background-color: #14161a;
-    z-index: 1;
+    background-color: rgba(20, 22, 26, 0.8); /* More transparent for modern look */
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(76, 0, 255, 0.1);
 }
 
 #nav-bg {
-    background-color: #14161a; 
+    background-color: rgba(20, 22, 26, 0.9);
 }
 
+/* Add gradient border bottom on hover */
+.navbar:hover {
+    border-bottom: 1px solid rgba(76, 0, 255, 0.3);
+    box-shadow: 0 4px 20px rgba(76, 0, 255, 0.15);
+}
+
+/* Logo styling */
+.navbar-brand strong {
+    background: linear-gradient(135deg, #4c00ff 0%, #8a2be2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 800;
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-brand strong:hover {
+    text-shadow: 0 0 8px rgba(76, 0, 255, 0.6);
+}
+
+/* Navigation links */
+.navbar-item {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 0.4rem;
+    border-radius: 4px;
+    padding: 0.4rem 0.8rem;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar-item:hover {
+    color: #ffffff;
+    background-color: rgba(76, 0, 255, 0.1) !important;
+    transform: translateY(-2px);
+}
+
+/* Selected item indicator */
+.is-selected {
+    color: #ffffff !important;
+}
+
+.is-selected::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 10%;
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, rgba(76, 0, 255, 0.3), rgba(138, 43, 226, 1), rgba(76, 0, 255, 0.3));
+    border-radius: 2px;
+}
+
+/* Icons styling */
+.navbar-item .icon {
+    margin-right: 0.4rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-item:hover .icon {
+    color: #4c00ff;
+    transform: scale(1.1);
+}
+
+.is-selected .icon {
+    color: #4c00ff;
+}
+
+/* Logout icon */
 #logoutIcon {
     transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.8);
 }
 
 #logoutIcon:hover {
     color: #4c00ff;
-    transform: translateY(-1px);
-    box-shadow: 0 5px 15px rgba(76, 0, 255, 0.4);
+    transform: translateY(-1px) rotate(90deg);
+    text-shadow: 0 0 8px rgba(76, 0, 255, 0.6);
+}
+
+/* For the Google login button */
+.navbar-end .navbar-item {
+    display: flex;
+    align-items: center;
+}
+
+/* User info styling */
+.navbar-end .is-flex {
+    background-color: rgba(76, 0, 255, 0.05);
+    border-radius: 20px;
+    padding: 0.3rem 0.8rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.navbar-end .is-flex:hover {
+    background-color: rgba(76, 0, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(76, 0, 255, 0.2);
+}
+
+.navbar-end .is-flex .mx-2 {
+    font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1023px) {
+    .navbar-menu {
+        background-color: rgba(20, 22, 26, 0.95);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    
+    .navbar-item {
+        border-radius: 0;
+    }
+    
+    .is-selected::after {
+        width: 40%;
+        left: 30%;
+    }
 }

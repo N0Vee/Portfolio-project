@@ -1,5 +1,7 @@
 import React from 'react';
 import '../style/Footer.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -7,7 +9,6 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        {/* Glowing dots effect from MainSection */}
         <div className="glowing-dots">
           {Array.from({ length: 30 }).map((_, index) => (
             <div 
@@ -40,12 +41,10 @@ const Footer = () => {
 
           {/* Navigation Links */}
           <div className="footer-nav">
-            <a href="#home" className="footer-link">Home</a>
-            <a href="#about" className="footer-link">About</a>
-            <a href="#skills" className="footer-link">Skills</a>
-            <a href="#projects" className="footer-link">Projects</a>
-            <a href="#education" className="footer-link">Education</a>
-            <a href="#contact" className="footer-link">Contact</a>
+            <a href="/" className="footer-link">Home</a>
+            <a href="/about" className="footer-link">About</a>
+            <a href="/education" className="footer-link">Education</a>
+            <a href="/projects" className="footer-link">Projects</a>
           </div>
 
           {/* Social links from MainSection */}

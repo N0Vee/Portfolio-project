@@ -62,7 +62,7 @@ const MainSection = () => {
                                 <a href="https://discordapp.com/users/Nveee#9120" target="_blank" rel="noopener noreferrer" className="has-text-white socialButton" aria-label="Discord">
                                     <i className="fab fa-discord"></i>
                                 </a>
-                                <a href="mailto:contact@wanichanon.com" className="has-text-white socialButton" aria-label="Email">
+                                <a href="mailto:contact@wanichanon.work@gmail.com" className="has-text-white socialButton" aria-label="Email">
                                     <i className="fas fa-envelope"></i>
                                 </a>
                                 

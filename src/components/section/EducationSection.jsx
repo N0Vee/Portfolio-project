@@ -4,7 +4,7 @@ import "../style/EducationSection.css";
 const EducationSection = () => {
     const [isVisible, setIsVisible] = useState(false);
     const sectionRef = useRef(null);
-    
+
     useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
@@ -14,27 +14,46 @@ const EducationSection = () => {
             },
             { threshold: 0.2 }
         );
-        
+
         if (sectionRef.current) {
             observer.observe(sectionRef.current);
         }
-        
+
         return () => {
             if (sectionRef.current) {
                 observer.unobserve(sectionRef.current);
             }
         };
     }, []);
-    
+
     return (
+
+
         <section className='education' id='education' ref={sectionRef}>
+
+            <div className="glowing-dots">
+                {[...Array(30)].map((_, i) => (
+                    <div
+                        key={i}
+                        className="dot"
+                        style={{
+                            left: `${Math.random() * 100}%`,
+                            top: `${Math.random() * 100}%`,
+                            opacity: Math.random() * 0.5 + 0.1,
+                            width: `${Math.random() * 4 + 1}px`,
+                            height: `${Math.random() * 4 + 1}px`
+                        }}
+                    />
+                ))}
+            </div>
+
             <div className="education-container">
                 <div className={`education-header ${isVisible ? 'fade-in' : ''}`}>
                     <h2 className="education-title">
                         My <span className="highlight">Education</span> Journey
                     </h2>
                 </div>
-                
+
                 <div className="section-separator">
                     <div className="separator-content">
                         <div className="separator-line"></div>
@@ -44,17 +63,17 @@ const EducationSection = () => {
                         <div className="separator-line"></div>
                     </div>
                 </div>
-                
+
                 <div className="timeline-container">
                     <div className="timeline-track">
-                        <div 
-                            className="timeline-progress" 
+                        <div
+                            className="timeline-progress"
                             style={{ height: isVisible ? '100%' : '0%' }}
                         ></div>
                     </div>
-                    
+
                     <div className="timeline-events">
-                        <div className={`timeline-event ${isVisible ? 'fade-in' : ''}`} style={{animationDelay: "0.2s"}}>
+                        <div className={`timeline-event ${isVisible ? 'fade-in' : ''}`} style={{ animationDelay: "0.2s" }}>
                             <div className="timeline-marker"></div>
                             <div className="timeline-content">
                                 <div className="education-card-header">
@@ -65,13 +84,13 @@ const EducationSection = () => {
                                     <p>Bachelor's degree in IT, Software Engineering</p>
                                     <ul className="education-highlights">
                                         <li>Faculty of Information Technology and Management</li>
-                                        <li>Current GPA: 3.14</li>
+                                        <li>Current GPA: 3.18</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        
-                        <div className={`timeline-event ${isVisible ? 'fade-in' : ''}`} style={{animationDelay: "0.4s"}}>
+
+                        <div className={`timeline-event ${isVisible ? 'fade-in' : ''}`} style={{ animationDelay: "0.4s" }}>
                             <div className="timeline-marker"></div>
                             <div className="timeline-content">
                                 <div className="education-card-header">
@@ -86,8 +105,8 @@ const EducationSection = () => {
                                 </div>
                             </div>
                         </div>
-                        
-                        <div className={`timeline-event ${isVisible ? 'fade-in' : ''}`} style={{animationDelay: "0.6s"}}>
+
+                        <div className={`timeline-event ${isVisible ? 'fade-in' : ''}`} style={{ animationDelay: "0.6s" }}>
                             <div className="timeline-marker"></div>
                             <div className="timeline-content">
                                 <div className="education-card-header">

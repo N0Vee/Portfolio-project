@@ -7,7 +7,7 @@
     justify-content: center;
     color: #f5f5f5;
     font-family: sans-serif;
-    background-color: #121212;
+    background: transparent; /* Changed to transparent to use global background */
     position: relative;
     overflow: hidden;
 }
@@ -34,6 +34,13 @@
     z-index: 2;
 }
 
+.glowing-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
 .education-header {
     text-align: left;
     margin-bottom: 2rem;
@@ -41,11 +48,19 @@
 }
 
 .education-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
+    font-size: 3.5rem;
+    font-weight: 800;
     margin-bottom: 1rem;
-    color: #f5f5f5;
+    background: linear-gradient(135deg, #4c00ff 0%, #8a2be2 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    letter-spacing: -1px;
+}
+
+.education-title .highlight {
+    color: #4c00ff;
 }
 
 /* Using the highlight style from MainSection */
@@ -181,6 +196,7 @@
     transition: all 0.3s ease;
 }
 
+/* Updated to match quote-box hover effect */
 .timeline-content:hover {
     transform: translateY(-3px);
     box-shadow: 0 7px 20px rgba(76, 0, 255, 0.15);
@@ -253,6 +269,24 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* Adding glowing dots like in MainSection */
+.glowing-dots {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #4c00ff;
+    border-radius: 50%;
+    opacity: 0.4;
 }
 
 /* Responsive adjustments */

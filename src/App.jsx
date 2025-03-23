@@ -16,6 +16,7 @@ import BlogView from "./components/blog/BlogView";
 import AboutSection from "./components/section/AboutSection";
 import EducationSection from "./components/section/EducationSection";
 import ProjectSection from "./components/section/ProjectSsection";
+import Footer from "./components/layout/Footer";
 
 function App() {
   return (
@@ -29,6 +30,8 @@ function App() {
             <EducationSection />
             <SkillsSection />
             <ProjectSection />
+            <Footer />
+
           </>
         } />
         <Route path="/about" element={<AboutSection />} />

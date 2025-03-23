@@ -4,7 +4,7 @@ import "../style/SkillsSection.css";
 
 export const SkillsSection = () => {
     const skills = {
-        "Frontend / Frameworks": ["HTML5", "CSS3", "JavaScript", "React"],
+        "Frontend / Frameworks": ["HTML", "CSS", "JavaScript", "React"],
         "UI Libraries": ["Bulma", "Bootstrap", "Tailwind"],
         "Backend": ["Node.js", "Express", "Bun", "Elysia.js"],
         "Databases": ["MySQL", "PostgreSQL", "MongoDB", "Firebase"],
@@ -52,41 +52,48 @@ export const SkillsSection = () => {
     
     return (
         <section id="skill-bg" className="section" ref={sectionRef}>
+
+            <div className="glowing-dots">
+                {[...Array(30)].map((_, i) => (
+                    <div
+                        key={i}
+                        className="dot"
+                        style={{
+                            left: `${Math.random() * 100}%`,
+                            top: `${Math.random() * 100}%`,
+                            opacity: Math.random() * 0.5 + 0.1,
+                            width: `${Math.random() * 4 + 1}px`,
+                            height: `${Math.random() * 4 + 1}px`
+                        }}
+                    />
+                ))}
+            </div>
+
+
             <div className="glowing-dots-skills"></div>
             <div className="container skills-container">
-                <motion.div
-                    className="skills-grid"
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }}
-                    transition={{ duration: 0.8 }}
-                >
+                <div className="skills-grid">
                     {Object.entries(skills).map(([category, skillList], index) => (
                         <motion.div
                             className="skill-category-card"
                             key={index}
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : -20 }}
-                            transition={{ duration: 0.8, delay: index * 0.1 }}
+                            transition={{ duration: 0.5, delay: index * 0.1 }}
                         >
                             <div className="category-header">
                                 <h3 className="category-title">{category}</h3>
                             </div>
                             <div className="skills-content">
                                 {skillList.map((skill, i) => (
-                                    <motion.span
-                                        key={i}
-                                        className="skill-tag"
-                                        initial={{ opacity: 0, scale: 0.9 }}
-                                        animate={{ opacity: isVisible ? 1 : 0, scale: isVisible ? 1 : 0.9 }}
-                                        transition={{ duration: 0.5, delay: isVisible ? index * 0.1 + i * 0.05 : 0 }}
-                                    >
+                                    <span key={i} className="skill-tag">
                                         {skill}
-                                    </motion.span>
+                                    </span>
                                 ))}
                             </div>
                         </motion.div>
                     ))}
-                </motion.div>
+                </div>
             </div>
         </section>
     );

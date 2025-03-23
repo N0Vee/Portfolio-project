@@ -39,12 +39,8 @@
     letter-spacing: -1px;
 }
 
-.about-underline {
-    height: 4px;
-    width: 80px;
-    margin: 0 auto;
-    background: linear-gradient(135deg, #4c00ff 0%, #8a2be2 100%);
-    border-radius: 2px;
+.about-highlight {
+    color: #4c00ff;
 }
 
 .about-content {
